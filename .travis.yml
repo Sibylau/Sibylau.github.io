@@ -25,10 +25,10 @@ script:
 - hexo g
 after_success:
 #- sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
-- cd ./public
-- git init
-- git add --all .
-- git commit -m "Travis CI Auto Builder"
+#- cd ./public
+#- git init
+#- git add --all .
+#- git commit -m "Travis CI Auto Builder"
 # 这里的 GH_TOKEN 即之前在 travis 项目的环境变量里添加的
-- git push --quiet --force https://$GH_TOKEN@github.com/Sibylau/Sibylau.github.io.git master:master
+#- git push --quiet --force https://$GH_TOKEN@github.com/Sibylau/Sibylau.github.io.git master:master
 - hexo d
