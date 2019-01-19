@@ -79,7 +79,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:Sibylau/Sibylau.github.io.git
+  repository: https://$GH_TOKEN@github.com/Sibylau/Sibylau.github.io.git
   branch: master
 
 Plugins:
