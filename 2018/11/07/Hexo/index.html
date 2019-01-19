@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Compiler,CGRA,">
+  <meta name="keywords" content="Jie, Map">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="幽人竹桑园 归卧寂无喧">
-<meta name="keywords" content="Compiler,CGRA">
+<meta name="description" content="为了让这里尽快变得温馨起来，这篇整理了Hexo不方便之处的解决办法 Hexo官网 Hexo / documentation / troubleshooting /GitHub. Basics$ hexo new &amp;quot;My New Post&amp;quot;  More info: Writing $ hexo server  More info: Server Generate static f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLVM+Clang学习笔记">
-<meta property="og:url" content="https://sibylau.github.io/2018/12/25/LLVM-Clang学习笔记/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://sibylau.github.io/2018/11/07/Hexo/index.html">
 <meta property="og:site_name" content="Sibylau&#39;s Map">
-<meta property="og:description" content="幽人竹桑园 归卧寂无喧">
+<meta property="og:description" content="为了让这里尽快变得温馨起来，这篇整理了Hexo不方便之处的解决办法 Hexo官网 Hexo / documentation / troubleshooting /GitHub. Basics$ hexo new &amp;quot;My New Post&amp;quot;  More info: Writing $ hexo server  More info: Server Generate static f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-25T14:47:11.898Z">
+<meta property="og:updated_time" content="2019-01-18T12:54:19.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LLVM+Clang学习笔记">
-<meta name="twitter:description" content="幽人竹桑园 归卧寂无喧">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="为了让这里尽快变得温馨起来，这篇整理了Hexo不方便之处的解决办法 Hexo官网 Hexo / documentation / troubleshooting /GitHub. Basics$ hexo new &amp;quot;My New Post&amp;quot;  More info: Writing $ hexo server  More info: Server Generate static f">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://sibylau.github.io/2018/12/25/LLVM-Clang学习笔记/">
+  <link rel="canonical" href="https://sibylau.github.io/2018/11/07/Hexo/">
 
 
 
 
 
-  <title>LLVM+Clang学习笔记 | Sibylau's Map</title>
+  <title>Hexo | Sibylau's Map</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/12/25/LLVM-Clang学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/11/07/Hexo/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Liu">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LLVM+Clang学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T22:37:04+08:00">
-                2018-12-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T14:45:33+08:00">
+                2018-11-07
               </time>
             
 
@@ -321,8 +320,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/25/LLVM-Clang学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/12/25/LLVM-Clang学习笔记/" itemprop="commentsCount"></span>
+                <a href="/2018/11/07/Hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/11/07/Hexo/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +349,97 @@
       
 
       
-        
+        <p>为了让这里尽快变得温馨起来，这篇整理了Hexo不方便之处的解决办法</p>
+<p>Hexo官网 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> / <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> / <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> /<a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h3 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<p>Generate static files:</p>
+<pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>发布流程：</p>
+<pre><code>hexo clean
+hexo d -g
+</code></pre><h3 id="Manage-my-pictures"><a href="#Manage-my-pictures" class="headerlink" title="Manage my pictures"></a>Manage my pictures</h3><p>在每次hexo n的时候自动生成文件夹。</p>
+<p><code>_config.yml</code>中<code>post_asset_folder: true</code></p>
+<h3 id="Hexo-迁移"><a href="#Hexo-迁移" class="headerlink" title="Hexo 迁移"></a>Hexo 迁移</h3><p>安装Travis-CI</p>
+<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><pre><code class="markdown"># 这是一级标题
+## 这是二级标题
+### 这是三级标题
+#### 这是四级标题
+##### 这是五级标题
+###### 这是六级标题
+</code></pre>
+<pre><code class="markdown">**这是加粗的文字**
+*这是倾斜的文字*`
+***这是斜体加粗的文字***
+~~这是加删除线的文字~~
+</code></pre>
+<pre><code class="markdown">&gt;这是引用的内容
+&gt;&gt;这是引用的内容
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容
+</code></pre>
+<pre><code class="markdown">分割线们：
+---
+----
+***
+*****
+</code></pre>
+<pre><code class="markdown">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)
+
+图片alt就是显示在图片下面的文字，相当于对图片内容的解释。
+图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加
+</code></pre>
+<pre><code class="markdown">[超链接名](超链接地址 &quot;超链接title&quot;)
+title可加可不加
+</code></pre>
+<pre><code class="markdown">- 列表内容
++ 列表内容
+* 列表内容
+1. 列表内容
+注意：- + * 跟内容之间都要有一个空格
+列表嵌套：上一级和下一级之间敲三个空格即可
+</code></pre>
+<pre><code class="markdown">表头|表头|表头
+---|:--:|---:
+内容|内容|内容
+内容|内容|内容
+
+第二行分割表头和内容。
+- 有一个就行，为了对齐，多加了几个
+文字默认居左
+-两边加：表示文字居中
+-右边加：表示文字居右
+注：原生的语法两边都要用 | 包起来。此处省略
+</code></pre>
+<pre><code class="markdown">单行代码：
+`代码内容`
+代码块：
+(```)
+  代码...
+  代码...
+  代码...
+(```)
+</code></pre>
+<pre><code class="markdown">```flow
+st=&gt;start: 开始
+op=&gt;operation: My Operation
+cond=&gt;condition: Yes or No?
+e=&gt;end
+st-&gt;op-&gt;cond
+cond(yes)-&gt;e
+cond(no)-&gt;op
+&amp;```
+</code></pre>
+<p>For more info: <a href="https://www.appinn.com/markdown/" target="_blank" rel="noopener">https://www.appinn.com/markdown/</a></p>
+
       
     </div>
     
@@ -365,14 +454,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Compiler/" rel="tag"># Compiler</a>
-          
-            <a href="/tags/CGRA/" rel="tag"># CGRA</a>
-          
-        </div>
-      
 
       
       
@@ -382,18 +463,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/26/Lecture 12 - 14/" rel="prev" title="Financial Risk Management Lecture 12-14">
-                Financial Risk Management Lecture 12-14 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/25/LLVM学习笔记/" rel="prev" title="LLVM+Clang学习笔记">
+                LLVM+Clang学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -453,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -471,7 +557,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -484,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -508,6 +594,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basics"><span class="nav-number">1.</span> <span class="nav-text">Basics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manage-my-pictures"><span class="nav-number">2.</span> <span class="nav-text">Manage my pictures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-迁移"><span class="nav-number">3.</span> <span class="nav-text">Hexo 迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown"><span class="nav-number">4.</span> <span class="nav-text">Markdown</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -521,7 +623,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-tree"></i>
   </span>
