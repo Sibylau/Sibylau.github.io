@@ -16,14 +16,15 @@ before_install:
 - git config --global user.name "Sibylau"
 - git config --global user.email "sibylau@outlook.com"
 - npm install -g hexo-cli
+- npm install hexo-deployer-git --save
 install:
 # 不用yarn的话这里改成 npm i 即可
 - npm i
 script:
 - hexo clean
 - hexo generate
-- hexo deploy
 after_success:
+- hexo deploy
 - cd ./public
 - git init
 - git add --all .
