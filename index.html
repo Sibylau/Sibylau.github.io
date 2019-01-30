@@ -272,6 +272,828 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Map">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/27/Lucky-Bee-Problems/" itemprop="url">Lucky Bee - Problems</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T15:53:19+08:00">
+                2019-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><h3 id="IS-LAPACK-Multi-threaded"><a href="#IS-LAPACK-Multi-threaded" class="headerlink" title="IS LAPACK Multi-threaded?"></a>IS LAPACK Multi-threaded?</h3><p><strong>Statement</strong>: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。 </p>
+<p>现象：</p>
+<ul>
+<li>cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x512都是single thread</li>
+<li>lu: 8x8(1 thread), 16x16(8 threads), 32x32(16 threads), 64x64(32 threads), 128x128(64 threads), 256x256(64 threads), 512x512(64 threads)</li>
+</ul>
+<p>思路：</p>
+<ul>
+<li><p>用了MKL, OpenBLAS, ATLAS?</p>
+<ul>
+<li><p>MKL一定没有装，我没有libmkl…</p>
+</li>
+<li><p>我的/usr/lib下有liblapack_atlas, libatlas, libcblas, 和libopenblas（划掉前缀lib）的静态和动态库。。。？？怎么会啊？？</p>
+<p>在lapack和blas的目录里面find -name找，都没有找到这些诡异的库，它们不是我安装的时候手动编译cp到/usr/lib的，那应该就是make的时候这个版本自己安装的。good。:)。以下是debug的记录。还有为什么新版本会有这些支持multi thread的东西。</p>
+</li>
+</ul>
+</li>
+<li><p><a href="http://www.netlib.org/lapack/官网上，LAPACK最高版本3.8.0；http://www.netlib.org/blas/上，也是3.8.0的下载包，我的版本是最高版本。" target="_blank" rel="noopener">http://www.netlib.org/lapack/官网上，LAPACK最高版本3.8.0；http://www.netlib.org/blas/上，也是3.8.0的下载包，我的版本是最高版本。</a></p>
+</li>
+<li><p>我的BLAS库里面全是.f的fortran源代码文件</p>
+<ul>
+<li><strong>.f</strong>, <strong>.for</strong>, <strong>.FOR</strong>, <strong>.ftn*</strong>, <strong>.f90*</strong>, <strong>.f95*</strong>, <strong>.f03*</strong>: fortran源码，不需编译预处理</li>
+<li><strong>.F</strong>, <strong>.fpp</strong>, <strong>.FPP</strong>, <strong>.FTN*</strong>, <strong>.F90*</strong>, <strong>.F95*</strong>, <strong>.F03*</strong>: fortran源码，需编译预处理</li>
+<li><strong>.r</strong>: fortran源码，需要RatFor编译预处理</li>
+<li><strong>.o</strong>: 对象文件</li>
+<li><strong>.s</strong>: 汇编语言代码</li>
+<li><strong>.so</strong>: 动态库; <strong>.a</strong>: 静态库 (archive) </li>
+</ul>
+<p>发现BLAS当时安装的时候没有编译成库放到系统路径里，重新执行了这一步骤。另外发现了一个比较神奇的事情，make -j8之后，make还是只有一个thread在跑，跟学弟分析了一下，感觉是有两个可能，一是make调用了执行别的程序的命令，非编译（学弟说-jN一般对makefile的编译命令起作用，链接就不起作用了），二是container里有限制（应该不是）。</p>
+</li>
+<li><p>看lapacke_sgetrf.c（LU分解源码）</p>
+<ul>
+<li>做的事情：size_check -&gt; NAN_check -&gt; LAPACKE_sgetrf_work<ul>
+<li>LAPACK_sgetrf, LAPACKE_malloc/frees, LAPACKE_xerbla<ul>
+<li>external functions: ILAENV</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LAPACK库中sgetrf和sgetrf2的区别：sgetrf2是recursive form，先将大矩阵4等分，再在小矩阵上做sgetrf</li>
+</ul>
+</li>
+<li><p>看lapacke_spotrf.c（Cholesky分解源码）</p>
+<ul>
+<li>也是size_check -&gt; NAN_check -&gt; LAPACKE_spotrf_work<ul>
+<li>LAPACK_spotrf, LAPACKE_xerbla, LAPACKE_malloc/frees</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>一个比较权威的lapack-forum问答 <a href="http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=2&amp;t=1625" target="_blank" rel="noopener">http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=2&amp;t=1625</a></p>
+<p><img src="F:\Blog\source\_posts\Lucky-Bee-Problems\1" alt="1548609403899"></p>
+</li>
+</ul>
+<p>问问题的这个同学用ATLAS-BLAS编译CLAPACK，发现调BLAS可以multi thread，但是调CLAPACK就一定是单线程。回答的Julie是LAPACK主要开发者。时间2009年比较可疑。最新版LAPACK是2017年release的。老版本不支持LAPACK是真的。开发者们好像是想为进一步提升性能努力。</p>
+<ul>
+<li><p>PLASMA: a software package for solving problems in dense linear algebra using multicore processors and Xeon Phi coprocessors. PLASMA currently offers a collection of routines for solving linear systems of equations, least squares problems, eigenvalue problems, and singular value problems. 相对于LAPACK的单线程，PLASMA使用了更state-of-the-art的task scheduling 技术，在multi core上实现更优秀的性能，也是LAPACK/MAGMA团队（ICL）开发的。<a href="https://bitbucket.org/icl/plasma" target="_blank" rel="noopener">https://bitbucket.org/icl/plasma</a></p>
+</li>
+<li><p>OpenMP:</p>
+<ul>
+<li><p><a href="https://mitpress.mit.edu/books/using-openmp" target="_blank" rel="noopener">Portable Shared Memory Parallel Programming</a> </p>
+</li>
+<li><p>API that supports multi-platform <a href="https://en.wikipedia.org/wiki/Shared_memory_architecture" target="_blank" rel="noopener">shared memory</a> <a href="https://en.wikipedia.org/wiki/Multiprocessing" target="_blank" rel="noopener">multiprocessing </a>programming in <a href="https://en.wikipedia.org/wiki/C_(programming_language" target="_blank" rel="noopener">C</a>), <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener">C++</a>, and <a href="https://en.wikipedia.org/wiki/Fortran" target="_blank" rel="noopener">Fortran</a></p>
+</li>
+<li><p>2017版的LAPACK（就是我的3.8.0）中调用了OpenMP来实现Fortran的多线程（直接在github搜还是比grep快一些！）</p>
+<p><img src="F:\Blog\source\_posts\Lucky-Bee-Problems\2" alt="1548609403899"></p>
+<p><img src="F:\Blog\source\_posts\Lucky-Bee-Problems\3" alt="1548609403899"></p>
+<p>上面两图是$(LAPACK)/SRC/ssytrd_sb2st.F里的. </p>
+</li>
+</ul>
+<blockquote>
+<p>学弟建议用一下gdb或者安装CLine单步调试，看看LU分解到底嵌套调用了哪些有OPENMP的库，有时间试一下吧…</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>修改用户最大线程数：<ul>
+<li>ulimit -a查看用户limit信息，ulimit -u查看用户最大线程数</li>
+<li>网上说修改/etc/security/limits.d/90-nproc.conf可以改完生效用户最大线程数的修改，但我这里改完没有效果。</li>
+<li>既然用了OpenMP，直接export OMP_NUM_THREADS=1，就可以限制线程数啦。</li>
+<li>另外，export OMP_DYNAMIC=false</li>
+<li>gcc -fopenmp</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>怎么回Jason？</p>
+<ul>
+<li>测LU单线程，这个测完了</li>
+<li>需要把8 threads, 16 threads都测出来吗。。卡在这里，OMP_NUM_THREADS设置的是upper limit，我需要看OpenMP在Fortran的使用。</li>
+<li>明天问一下，poster<strong>可不可以只放single thread的数据</strong>，重新算加速比，Cholesky还是有加速的。</li>
+<li>尝试SRC/ssytrd_sb2st.F里改dynamic参数，重新编译make install.</li>
+</ul>
+</li>
+<li><p>之前的Ubuntu因为我的线程数忘记改回来，登不上去了。。。</p>
+<ul>
+<li>上Cent13，重新配置环境。。</li>
+<li>不过这次先修改了ssytrd_sb2st.F等三个文件，再编译</li>
+</ul>
+</li>
+<li><p>回Jason</p>
+<ul>
+<li>fact: </li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/21/COMBA-HLS/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Map">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/21/COMBA-HLS/" itemprop="url">COMBA-HLS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-21T15:47:51+08:00">
+                2019-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>COMBA项目：<a href="https://github.com/zjru/COMBA" target="_blank" rel="noopener">https://github.com/zjru/COMBA</a></p>
+<p>ICCAD-17 best paper award</p>
+<p>这篇前后看了四遍了，总是看了回想起来，有点忘了，就再看。</p>
+<p>文章是表象。</p>
+<h2 id="Paper-Review"><a href="#Paper-Review" class="headerlink" title="Paper Review"></a>Paper Review</h2><p>COMBA considers <em>7 pragmas</em>:</p>
+<ul>
+<li><p>Function - function pieplining, function inlining, dataflow</p>
+</li>
+<li><p>Loop - loop unrolling, loop flattening, loop pipelining</p>
+</li>
+<li><p>Array - array partitioning</p>
+</li>
+</ul>
+<p><em>Framework Overview</em>:</p>
+<p>a. CLang: C/C++ -&gt; LLVM IR </p>
+<pre><code class="bash">clang -S -emit-llvm [-O1] test.c -o test.ll
+</code></pre>
+<p>b. RDC: LLVM IR  -(analytical model + profiling library) -&gt; performance + resource   <em>pass: llvm::module</em></p>
+<p>c. MGDSE: evaluation + next configuration, return to b.</p>
+<p><em>Experimental testbench</em>: </p>
+<ul>
+<li>Polybench</li>
+<li>Real apps: JPEG, Seidel, Rician</li>
+</ul>
+<h2 id="Code-Analysis"><a href="#Code-Analysis" class="headerlink" title="Code Analysis"></a>Code Analysis</h2><p>LLVM 3.4  CLang前端</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/21/2019-01-21/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Map">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/21/2019-01-21/" itemprop="url">Mon Jan 21 2019 00:00:00 GMT+0800 (China Standard Time)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-21T15:19:49+08:00">
+                2019-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近想了好久，人生的意义是什么呢。</p>
+<p>作为一个从小就排斥写日记又不喜欢历史的人，这个问题我从来都不屑于去想的。</p>
+<p>但是最近大大小小的事情缠身，本科时光仿佛倏尔远逝，人生似乎一下子能看到尽头，这个问题就涌上来了。大概是十几天前，期末复习的时候，图书馆里静坐的时候，突然不喜欢复习了，就开始想这些有的没的。昨天实验室师兄去问老师毕业的事情，聊了好久，今天看代码的时候走神又开始陷入迷思。</p>
+<p>所以人生的意义是什么呢。我打算先把现在的一点思路记录下来。</p>
+<p>所谓主观能动性吧…</p>
+<p>你看一棵树，一只蚂蚁，一片云，仿佛自由自在，可是它们本质却不是自由的，它们有自己照本宣科的生命轨迹。人却不一样了，虽然生老病死，命由天定，但我们的理智与情感却能很清楚的分辨，人生和人生之间是天差地别的。我开始有点明白了，我思故我在是真的。</p>
+<p>师兄跟我说，我还年轻。我知道，这种无所用心的日子很快就消磨过去，年龄就不知不觉增加了。所以，掌握这种自由，去用心把时光填满，才是人生的意义吧。当垂垂老矣的时候，无需问自己为身外的一切贡献了多少变化，作为一个有自由意识的生命体，我深感不虚此行，了无牵挂，就实现了人生的意义吧。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Map">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/20/ISCA18-GPU-Locality-Mutlu/" itemprop="url">ISCA18-GPU-Locality-Mutlu</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T16:13:58+08:00">
+                2019-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Paper URL: <a href="https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf" target="_blank" rel="noopener">https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf</a></p>
+<h2 id="Background-knowledge"><a href="#Background-knowledge" class="headerlink" title="Background knowledge"></a>Background knowledge</h2><p><a href="http://www.irisa.fr/alf/downloads/collange/cours/gpuprog_ufmg/gpuprog_1.pdf" target="_blank" rel="noopener">http://www.irisa.fr/alf/downloads/collange/cours/gpuprog_ufmg/gpuprog_1.pdf</a></p>
+<p><a href="http://www.haifux.org/lectures/267/Introduction-to-GPUs.pdf" target="_blank" rel="noopener">http://www.haifux.org/lectures/267/Introduction-to-GPUs.pdf</a></p>
+<p>Moore’s Law/Dennard Scaling</p>
+<p>Superscalar execution: 多条流水线同时执行</p>
+<blockquote>
+<p>Memory Wall : </p>
+</blockquote>
+<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png" alt="1547973400329"></p>
+<blockquote>
+<p>Power wall</p>
+</blockquote>
+<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973492020.png" alt="1547973492020"></p>
+<p>Little’s Law: data = throughput * latency</p>
+<p>Sources of Parallelism:</p>
+<ul>
+<li>ILP: instruction-level parallelism</li>
+<li>TLP: thread-level parallelism</li>
+<li>DLP: data-level paralleliSm</li>
+</ul>
+<p>“Horizontal level” parallelism for throughput: more units working in parallel</p>
+<p>“vertical level” parallelism for latency hiding: pipelining </p>
+<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547974536676.png" alt="1547974536676"></p>
+<p>NUMA (non-uniform memory access): a computer memory design in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory, that is, memory local to another processor or memory shared between processors. In a NUMA system, processors, memory, and I/O are grouped together into cells. The latency and bandwidth characteristics of communication within a cell are “fast” while going outside a cell is “slow”. Since the memory in NUMA systems is physically distributed but logically shared, these systems offer better performance to applications that are optimized to use their features. For non-optimized applications, they still offer better performance since the default behavior is designed to be benign if not beneficial and they still have access to much larger shared resources of memory, CPUs, and disk space. </p>
+<blockquote>
+<p>Cooperative thread array (CTA): <a href="https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf" target="_blank" rel="noopener">https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf</a></p>
+</blockquote>
+<h2 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h2><h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li>NUMA-based hierarchy is expected in future GPUs</li>
+<li>与exploit parallelism不同，本篇的贡献在于 express data locality<ul>
+<li>reuse-based locality - caches</li>
+<li>NUMA locality - NUMA system</li>
+</ul>
+</li>
+<li>Problems: <ul>
+<li>programmer - hard to code for best performance</li>
+<li>high-level program semantics 的必要性</li>
+</ul>
+</li>
+<li>Propose - Locality Descriptor <ul>
+<li>cross-layer abstraction, data locality in GPUs<ul>
+<li>为软件提供portable interface for locality optimization，屏蔽下层memory techs and resources</li>
+<li>使架构能够leverage program semantics，有效协调一系列技术：CTA, cache manage, memory placement, <strong>programmer-transparent manner</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Evaluation<ul>
+<li>26.6% avg performance $\uparrow$ reuse-based locality</li>
+<li>53.7% avg $\uparrow$ NUMA locality</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>prevalence of GPU, importance of data locality<ul>
+<li>reuse of data within the application in the cache hierarchy - reuse-based locality</li>
+<li>placement of data close to the computation that uses it in a NUMA system - NUMA locality</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>WHAT is the difference between a scratchpad and a cache?</p>
+<ul>
+<li>Scratchpad memory: SRAM. Next closest to ALU after the processor registers, similar to L1 cache.  A system with scratchpads is a system with <strong>NUMA</strong> latencies, because the memory access latencies to the different scratchpads and the main memory vary. A scratchpad commonly does not contain a copy of data that is also stored in the main memory. “manually” managed, explicitly addresses, writing and retrieving results. Deterministic.</li>
+<li>Cache: SRAM. hardware-managed. “automatically” managed in hardware. (But if misses from main memory and fetches from disk, OS gets involved.)</li>
+</ul>
+</blockquote>
+<ul>
+<li>challenges<ul>
+<li>no explicit interfaces<ul>
+<li>hard for software: techs like thread scheduling, cache bypassing/prioritization, prefetching</li>
+<li>inter-CTA(or thread blocks), inter-warp, intra-warp locality</li>
+<li>not portable: fine-grained, across different architecture with a different CTA scheduler</li>
+</ul>
+</li>
+<li>application’s access semantics miss from software-transparent arch: NUMA locality (place data close to threads using it), CTA scheduling (scheduling CTAs share data at the same core)</li>
+</ul>
+</li>
+<li>case study<ul>
+<li><em>histo</em> benchmark: </li>
+</ul>
+</li>
+</ul>
+<p>问涂师兄memory文章的事情。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/20/HPCA-19-PwrManager-Mutlu/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Map">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/20/HPCA-19-PwrManager-Mutlu/" itemprop="url">HPCA'19-PwrManager-Mutlu</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T12:57:21+08:00">
+                2019-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Background-Knowledge"><a href="#Background-Knowledge" class="headerlink" title="Background Knowledge"></a>Background Knowledge</h2><p><em>Power Budget</em> : 预算</p>
+<p><em>High Availability</em> : <a href="https://en.wikipedia.org/wiki/Availability" target="_blank" rel="noopener">Availability</a> refers to the ability of the user community to obtain a service or good. Availability is usually expressed as a percentage of uptime in a given year.</p>
+<p><em>power distribution infrastructures</em> : power supplies(电源), power feeds(送电器), circuit breaker(断电器)</p>
+<p><em>Power distribution hierarchy</em> ? </p>
+<p>这竟然是一篇强电的文章……</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/02/Perls/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1054,337 +1876,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/12/25/LLVM学习笔记/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jie Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sibylau's Map">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/25/LLVM学习笔记/" itemprop="url">LLVM学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T22:37:04+08:00">
-                2018-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/11/07/Hexo/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jie Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sibylau's Map">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/07/Hexo/" itemprop="url">Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T14:45:33+08:00">
-                2018-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>为了让这里尽快变得温馨起来，这篇整理了Hexo不方便之处的解决办法</p>
-<p>Hexo官网 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> / <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> / <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> /<a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h3 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<p>Generate static files:</p>
-<pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p>发布流程：</p>
-<pre><code>hexo clean
-hexo d -g
-</code></pre><h3 id="Manage-my-pictures"><a href="#Manage-my-pictures" class="headerlink" title="Manage my pictures"></a>Manage my pictures</h3><p>在每次hexo n的时候自动生成文件夹。</p>
-<p><code>_config.yml</code>中<code>post_asset_folder: true</code></p>
-<h3 id="Hexo-迁移"><a href="#Hexo-迁移" class="headerlink" title="Hexo 迁移"></a>Hexo 迁移</h3><p>安装Travis-CI</p>
-<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><pre><code class="markdown"># 这是一级标题
-## 这是二级标题
-### 这是三级标题
-#### 这是四级标题
-##### 这是五级标题
-###### 这是六级标题
-</code></pre>
-<pre><code class="markdown">**这是加粗的文字**
-*这是倾斜的文字*`
-***这是斜体加粗的文字***
-~~这是加删除线的文字~~
-</code></pre>
-<pre><code class="markdown">&gt;这是引用的内容
-&gt;&gt;这是引用的内容
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容
-</code></pre>
-<pre><code class="markdown">分割线们：
----
-----
-***
-*****
-</code></pre>
-<pre><code class="markdown">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)
-
-图片alt就是显示在图片下面的文字，相当于对图片内容的解释。
-图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加
-</code></pre>
-<pre><code class="markdown">[超链接名](超链接地址 &quot;超链接title&quot;)
-title可加可不加
-</code></pre>
-<pre><code class="markdown">- 列表内容
-+ 列表内容
-* 列表内容
-1. 列表内容
-注意：- + * 跟内容之间都要有一个空格
-列表嵌套：上一级和下一级之间敲三个空格即可
-</code></pre>
-<pre><code class="markdown">表头|表头|表头
----|:--:|---:
-内容|内容|内容
-内容|内容|内容
-
-第二行分割表头和内容。
-- 有一个就行，为了对齐，多加了几个
-文字默认居左
--两边加：表示文字居中
--右边加：表示文字居右
-注：原生的语法两边都要用 | 包起来。此处省略
-</code></pre>
-<pre><code class="markdown">单行代码：
-`代码内容`
-代码块：
-(```)
-  代码...
-  代码...
-  代码...
-(```)
-</code></pre>
-<pre><code class="markdown">```flow
-st=&gt;start: 开始
-op=&gt;operation: My Operation
-cond=&gt;condition: Yes or No?
-e=&gt;end
-st-&gt;op-&gt;cond
-cond(yes)-&gt;e
-cond(no)-&gt;op
-&amp;```
-</code></pre>
-<p>For more info: <a href="https://www.appinn.com/markdown/" target="_blank" rel="noopener">https://www.appinn.com/markdown/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1430,7 +1928,7 @@ cond(no)-&gt;op
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1443,7 +1941,7 @@ cond(no)-&gt;op
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

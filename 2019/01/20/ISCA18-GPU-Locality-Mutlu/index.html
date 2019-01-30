@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LLVM,">
+  <meta name="keywords" content="Paper,ISCA,">
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="幽人竹桑园 归卧寂无喧">
-<meta name="keywords" content="LLVM">
+<meta name="description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
+<meta name="keywords" content="Paper,ISCA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLVM学习笔记">
-<meta property="og:url" content="https://sibylau.github.io/2018/12/25/LLVM学习笔记/index.html">
+<meta property="og:title" content="ISCA18-GPU-Locality-Mutlu">
+<meta property="og:url" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/index.html">
 <meta property="og:site_name" content="Sibylau&#39;s Map">
-<meta property="og:description" content="幽人竹桑园 归卧寂无喧">
+<meta property="og:description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-21T05:52:04.541Z">
+<meta property="og:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png">
+<meta property="og:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973492020.png">
+<meta property="og:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547974536676.png">
+<meta property="og:updated_time" content="2019-01-30T06:02:29.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LLVM学习笔记">
-<meta name="twitter:description" content="幽人竹桑园 归卧寂无喧">
+<meta name="twitter:title" content="ISCA18-GPU-Locality-Mutlu">
+<meta name="twitter:description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
+<meta name="twitter:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://sibylau.github.io/2018/12/25/LLVM学习笔记/">
+  <link rel="canonical" href="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/">
 
 
 
 
 
-  <title>LLVM学习笔记 | Sibylau's Map</title>
+  <title>ISCA18-GPU-Locality-Mutlu | Sibylau's Map</title>
   
 
 
@@ -273,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/12/25/LLVM学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Liu">
@@ -290,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LLVM学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">ISCA18-GPU-Locality-Mutlu</h1>
         
 
         <div class="post-meta">
@@ -302,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T22:37:04+08:00">
-                2018-12-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T16:13:58+08:00">
+                2019-01-20
               </time>
             
 
@@ -321,8 +325,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/25/LLVM学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/12/25/LLVM学习笔记/" itemprop="commentsCount"></span>
+                <a href="/2019/01/20/ISCA18-GPU-Locality-Mutlu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/01/20/ISCA18-GPU-Locality-Mutlu/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +354,91 @@
       
 
       
-        
+        <p>Paper URL: <a href="https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf" target="_blank" rel="noopener">https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf</a></p>
+<h2 id="Background-knowledge"><a href="#Background-knowledge" class="headerlink" title="Background knowledge"></a>Background knowledge</h2><p><a href="http://www.irisa.fr/alf/downloads/collange/cours/gpuprog_ufmg/gpuprog_1.pdf" target="_blank" rel="noopener">http://www.irisa.fr/alf/downloads/collange/cours/gpuprog_ufmg/gpuprog_1.pdf</a></p>
+<p><a href="http://www.haifux.org/lectures/267/Introduction-to-GPUs.pdf" target="_blank" rel="noopener">http://www.haifux.org/lectures/267/Introduction-to-GPUs.pdf</a></p>
+<p>Moore’s Law/Dennard Scaling</p>
+<p>Superscalar execution: 多条流水线同时执行</p>
+<blockquote>
+<p>Memory Wall : </p>
+</blockquote>
+<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png" alt="1547973400329"></p>
+<blockquote>
+<p>Power wall</p>
+</blockquote>
+<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973492020.png" alt="1547973492020"></p>
+<p>Little’s Law: data = throughput * latency</p>
+<p>Sources of Parallelism:</p>
+<ul>
+<li>ILP: instruction-level parallelism</li>
+<li>TLP: thread-level parallelism</li>
+<li>DLP: data-level paralleliSm</li>
+</ul>
+<p>“Horizontal level” parallelism for throughput: more units working in parallel</p>
+<p>“vertical level” parallelism for latency hiding: pipelining </p>
+<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547974536676.png" alt="1547974536676"></p>
+<p>NUMA (non-uniform memory access): a computer memory design in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory, that is, memory local to another processor or memory shared between processors. In a NUMA system, processors, memory, and I/O are grouped together into cells. The latency and bandwidth characteristics of communication within a cell are “fast” while going outside a cell is “slow”. Since the memory in NUMA systems is physically distributed but logically shared, these systems offer better performance to applications that are optimized to use their features. For non-optimized applications, they still offer better performance since the default behavior is designed to be benign if not beneficial and they still have access to much larger shared resources of memory, CPUs, and disk space. </p>
+<blockquote>
+<p>Cooperative thread array (CTA): <a href="https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf" target="_blank" rel="noopener">https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf</a></p>
+</blockquote>
+<h2 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h2><h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li>NUMA-based hierarchy is expected in future GPUs</li>
+<li>与exploit parallelism不同，本篇的贡献在于 express data locality<ul>
+<li>reuse-based locality - caches</li>
+<li>NUMA locality - NUMA system</li>
+</ul>
+</li>
+<li>Problems: <ul>
+<li>programmer - hard to code for best performance</li>
+<li>high-level program semantics 的必要性</li>
+</ul>
+</li>
+<li>Propose - Locality Descriptor <ul>
+<li>cross-layer abstraction, data locality in GPUs<ul>
+<li>为软件提供portable interface for locality optimization，屏蔽下层memory techs and resources</li>
+<li>使架构能够leverage program semantics，有效协调一系列技术：CTA, cache manage, memory placement, <strong>programmer-transparent manner</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Evaluation<ul>
+<li>26.6% avg performance $\uparrow$ reuse-based locality</li>
+<li>53.7% avg $\uparrow$ NUMA locality</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>prevalence of GPU, importance of data locality<ul>
+<li>reuse of data within the application in the cache hierarchy - reuse-based locality</li>
+<li>placement of data close to the computation that uses it in a NUMA system - NUMA locality</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>WHAT is the difference between a scratchpad and a cache?</p>
+<ul>
+<li>Scratchpad memory: SRAM. Next closest to ALU after the processor registers, similar to L1 cache.  A system with scratchpads is a system with <strong>NUMA</strong> latencies, because the memory access latencies to the different scratchpads and the main memory vary. A scratchpad commonly does not contain a copy of data that is also stored in the main memory. “manually” managed, explicitly addresses, writing and retrieving results. Deterministic.</li>
+<li>Cache: SRAM. hardware-managed. “automatically” managed in hardware. (But if misses from main memory and fetches from disk, OS gets involved.)</li>
+</ul>
+</blockquote>
+<ul>
+<li>challenges<ul>
+<li>no explicit interfaces<ul>
+<li>hard for software: techs like thread scheduling, cache bypassing/prioritization, prefetching</li>
+<li>inter-CTA(or thread blocks), inter-warp, intra-warp locality</li>
+<li>not portable: fine-grained, across different architecture with a different CTA scheduler</li>
+</ul>
+</li>
+<li>application’s access semantics miss from software-transparent arch: NUMA locality (place data close to threads using it), CTA scheduling (scheduling CTAs share data at the same core)</li>
+</ul>
+</li>
+<li>case study<ul>
+<li><em>histo</em> benchmark: </li>
+</ul>
+</li>
+</ul>
+<p>问涂师兄memory文章的事情。</p>
+
       
     </div>
     
@@ -367,7 +455,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LLVM/" rel="tag"># LLVM</a>
+            <a href="/tags/Paper/" rel="tag"># Paper</a>
+          
+            <a href="/tags/ISCA/" rel="tag"># ISCA</a>
           
         </div>
       
@@ -380,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/07/Hexo/" rel="next" title="Hexo">
-                <i class="fa fa-chevron-left"></i> Hexo
+              <a href="/2019/01/20/HPCA-19-PwrManager-Mutlu/" rel="next" title="HPCA'19-PwrManager-Mutlu">
+                <i class="fa fa-chevron-left"></i> HPCA'19-PwrManager-Mutlu
               </a>
             
           </div>
@@ -390,8 +480,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/26/Financial Risk Management Lecture 12/" rel="prev" title="Financial Risk Management Lecture 12">
-                Financial Risk Management Lecture 12 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/21/2019-01-21/" rel="prev" title="Mon Jan 21 2019 00:00:00 GMT+0800 (China Standard Time)">
+                Mon Jan 21 2019 00:00:00 GMT+0800 (China Standard Time) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -451,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -505,6 +604,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background-knowledge"><span class="nav-number">1.</span> <span class="nav-text">Background knowledge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Paper"><span class="nav-number">2.</span> <span class="nav-text">Paper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">2.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.2.</span> <span class="nav-text">Introduction</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

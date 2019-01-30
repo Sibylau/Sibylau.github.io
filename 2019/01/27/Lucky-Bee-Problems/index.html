@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LLVM,">
+  <meta name="keywords" content="LAPACK,">
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="幽人竹桑园 归卧寂无喧">
-<meta name="keywords" content="LLVM">
+<meta name="description" content="ProblemsIS LAPACK Multi-threaded?Statement: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。  现象：  cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x">
+<meta name="keywords" content="LAPACK">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LLVM学习笔记">
-<meta property="og:url" content="https://sibylau.github.io/2018/12/25/LLVM学习笔记/index.html">
+<meta property="og:title" content="Lucky Bee - Problems">
+<meta property="og:url" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/index.html">
 <meta property="og:site_name" content="Sibylau&#39;s Map">
-<meta property="og:description" content="幽人竹桑园 归卧寂无喧">
+<meta property="og:description" content="ProblemsIS LAPACK Multi-threaded?Statement: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。  现象：  cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-21T05:52:04.541Z">
+<meta property="og:image" content="f:/Blog/source/_posts/Lucky-Bee-Problems/1">
+<meta property="og:image" content="f:/Blog/source/_posts/Lucky-Bee-Problems/2">
+<meta property="og:image" content="f:/Blog/source/_posts/Lucky-Bee-Problems/3">
+<meta property="og:updated_time" content="2019-01-30T06:02:44.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LLVM学习笔记">
-<meta name="twitter:description" content="幽人竹桑园 归卧寂无喧">
+<meta name="twitter:title" content="Lucky Bee - Problems">
+<meta name="twitter:description" content="ProblemsIS LAPACK Multi-threaded?Statement: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。  现象：  cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x">
+<meta name="twitter:image" content="f:/Blog/source/_posts/Lucky-Bee-Problems/1">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://sibylau.github.io/2018/12/25/LLVM学习笔记/">
+  <link rel="canonical" href="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/">
 
 
 
 
 
-  <title>LLVM学习笔记 | Sibylau's Map</title>
+  <title>Lucky Bee - Problems | Sibylau's Map</title>
   
 
 
@@ -273,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/12/25/LLVM学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Liu">
@@ -290,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LLVM学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Lucky Bee - Problems</h1>
         
 
         <div class="post-meta">
@@ -302,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T22:37:04+08:00">
-                2018-12-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T15:53:19+08:00">
+                2019-01-27
               </time>
             
 
@@ -321,8 +325,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/25/LLVM学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/12/25/LLVM学习笔记/" itemprop="commentsCount"></span>
+                <a href="/2019/01/27/Lucky-Bee-Problems/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/01/27/Lucky-Bee-Problems/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +354,113 @@
       
 
       
-        
+        <h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><h3 id="IS-LAPACK-Multi-threaded"><a href="#IS-LAPACK-Multi-threaded" class="headerlink" title="IS LAPACK Multi-threaded?"></a>IS LAPACK Multi-threaded?</h3><p><strong>Statement</strong>: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。 </p>
+<p>现象：</p>
+<ul>
+<li>cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x512都是single thread</li>
+<li>lu: 8x8(1 thread), 16x16(8 threads), 32x32(16 threads), 64x64(32 threads), 128x128(64 threads), 256x256(64 threads), 512x512(64 threads)</li>
+</ul>
+<p>思路：</p>
+<ul>
+<li><p>用了MKL, OpenBLAS, ATLAS?</p>
+<ul>
+<li><p>MKL一定没有装，我没有libmkl…</p>
+</li>
+<li><p>我的/usr/lib下有liblapack_atlas, libatlas, libcblas, 和libopenblas（划掉前缀lib）的静态和动态库。。。？？怎么会啊？？</p>
+<p>在lapack和blas的目录里面find -name找，都没有找到这些诡异的库，它们不是我安装的时候手动编译cp到/usr/lib的，那应该就是make的时候这个版本自己安装的。good。:)。以下是debug的记录。还有为什么新版本会有这些支持multi thread的东西。</p>
+</li>
+</ul>
+</li>
+<li><p><a href="http://www.netlib.org/lapack/官网上，LAPACK最高版本3.8.0；http://www.netlib.org/blas/上，也是3.8.0的下载包，我的版本是最高版本。" target="_blank" rel="noopener">http://www.netlib.org/lapack/官网上，LAPACK最高版本3.8.0；http://www.netlib.org/blas/上，也是3.8.0的下载包，我的版本是最高版本。</a></p>
+</li>
+<li><p>我的BLAS库里面全是.f的fortran源代码文件</p>
+<ul>
+<li><strong>.f</strong>, <strong>.for</strong>, <strong>.FOR</strong>, <strong>.ftn*</strong>, <strong>.f90*</strong>, <strong>.f95*</strong>, <strong>.f03*</strong>: fortran源码，不需编译预处理</li>
+<li><strong>.F</strong>, <strong>.fpp</strong>, <strong>.FPP</strong>, <strong>.FTN*</strong>, <strong>.F90*</strong>, <strong>.F95*</strong>, <strong>.F03*</strong>: fortran源码，需编译预处理</li>
+<li><strong>.r</strong>: fortran源码，需要RatFor编译预处理</li>
+<li><strong>.o</strong>: 对象文件</li>
+<li><strong>.s</strong>: 汇编语言代码</li>
+<li><strong>.so</strong>: 动态库; <strong>.a</strong>: 静态库 (archive) </li>
+</ul>
+<p>发现BLAS当时安装的时候没有编译成库放到系统路径里，重新执行了这一步骤。另外发现了一个比较神奇的事情，make -j8之后，make还是只有一个thread在跑，跟学弟分析了一下，感觉是有两个可能，一是make调用了执行别的程序的命令，非编译（学弟说-jN一般对makefile的编译命令起作用，链接就不起作用了），二是container里有限制（应该不是）。</p>
+</li>
+<li><p>看lapacke_sgetrf.c（LU分解源码）</p>
+<ul>
+<li>做的事情：size_check -&gt; NAN_check -&gt; LAPACKE_sgetrf_work<ul>
+<li>LAPACK_sgetrf, LAPACKE_malloc/frees, LAPACKE_xerbla<ul>
+<li>external functions: ILAENV</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LAPACK库中sgetrf和sgetrf2的区别：sgetrf2是recursive form，先将大矩阵4等分，再在小矩阵上做sgetrf</li>
+</ul>
+</li>
+<li><p>看lapacke_spotrf.c（Cholesky分解源码）</p>
+<ul>
+<li>也是size_check -&gt; NAN_check -&gt; LAPACKE_spotrf_work<ul>
+<li>LAPACK_spotrf, LAPACKE_xerbla, LAPACKE_malloc/frees</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>一个比较权威的lapack-forum问答 <a href="http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=2&amp;t=1625" target="_blank" rel="noopener">http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=2&amp;t=1625</a></p>
+<p><img src="F:\Blog\source\_posts\Lucky-Bee-Problems\1" alt="1548609403899"></p>
+</li>
+</ul>
+<p>问问题的这个同学用ATLAS-BLAS编译CLAPACK，发现调BLAS可以multi thread，但是调CLAPACK就一定是单线程。回答的Julie是LAPACK主要开发者。时间2009年比较可疑。最新版LAPACK是2017年release的。老版本不支持LAPACK是真的。开发者们好像是想为进一步提升性能努力。</p>
+<ul>
+<li><p>PLASMA: a software package for solving problems in dense linear algebra using multicore processors and Xeon Phi coprocessors. PLASMA currently offers a collection of routines for solving linear systems of equations, least squares problems, eigenvalue problems, and singular value problems. 相对于LAPACK的单线程，PLASMA使用了更state-of-the-art的task scheduling 技术，在multi core上实现更优秀的性能，也是LAPACK/MAGMA团队（ICL）开发的。<a href="https://bitbucket.org/icl/plasma" target="_blank" rel="noopener">https://bitbucket.org/icl/plasma</a></p>
+</li>
+<li><p>OpenMP:</p>
+<ul>
+<li><p><a href="https://mitpress.mit.edu/books/using-openmp" target="_blank" rel="noopener">Portable Shared Memory Parallel Programming</a> </p>
+</li>
+<li><p>API that supports multi-platform <a href="https://en.wikipedia.org/wiki/Shared_memory_architecture" target="_blank" rel="noopener">shared memory</a> <a href="https://en.wikipedia.org/wiki/Multiprocessing" target="_blank" rel="noopener">multiprocessing </a>programming in <a href="https://en.wikipedia.org/wiki/C_(programming_language" target="_blank" rel="noopener">C</a>), <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener">C++</a>, and <a href="https://en.wikipedia.org/wiki/Fortran" target="_blank" rel="noopener">Fortran</a></p>
+</li>
+<li><p>2017版的LAPACK（就是我的3.8.0）中调用了OpenMP来实现Fortran的多线程（直接在github搜还是比grep快一些！）</p>
+<p><img src="F:\Blog\source\_posts\Lucky-Bee-Problems\2" alt="1548609403899"></p>
+<p><img src="F:\Blog\source\_posts\Lucky-Bee-Problems\3" alt="1548609403899"></p>
+<p>上面两图是$(LAPACK)/SRC/ssytrd_sb2st.F里的. </p>
+</li>
+</ul>
+<blockquote>
+<p>学弟建议用一下gdb或者安装CLine单步调试，看看LU分解到底嵌套调用了哪些有OPENMP的库，有时间试一下吧…</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>修改用户最大线程数：<ul>
+<li>ulimit -a查看用户limit信息，ulimit -u查看用户最大线程数</li>
+<li>网上说修改/etc/security/limits.d/90-nproc.conf可以改完生效用户最大线程数的修改，但我这里改完没有效果。</li>
+<li>既然用了OpenMP，直接export OMP_NUM_THREADS=1，就可以限制线程数啦。</li>
+<li>另外，export OMP_DYNAMIC=false</li>
+<li>gcc -fopenmp</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>怎么回Jason？</p>
+<ul>
+<li>测LU单线程，这个测完了</li>
+<li>需要把8 threads, 16 threads都测出来吗。。卡在这里，OMP_NUM_THREADS设置的是upper limit，我需要看OpenMP在Fortran的使用。</li>
+<li>明天问一下，poster<strong>可不可以只放single thread的数据</strong>，重新算加速比，Cholesky还是有加速的。</li>
+<li>尝试SRC/ssytrd_sb2st.F里改dynamic参数，重新编译make install.</li>
+</ul>
+</li>
+<li><p>之前的Ubuntu因为我的线程数忘记改回来，登不上去了。。。</p>
+<ul>
+<li>上Cent13，重新配置环境。。</li>
+<li>不过这次先修改了ssytrd_sb2st.F等三个文件，再编译</li>
+</ul>
+</li>
+<li><p>回Jason</p>
+<ul>
+<li>fact: </li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -367,7 +477,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LLVM/" rel="tag"># LLVM</a>
+            <a href="/tags/LAPACK/" rel="tag"># LAPACK</a>
           
         </div>
       
@@ -380,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/07/Hexo/" rel="next" title="Hexo">
-                <i class="fa fa-chevron-left"></i> Hexo
+              <a href="/2019/01/21/COMBA-HLS/" rel="next" title="COMBA-HLS">
+                <i class="fa fa-chevron-left"></i> COMBA-HLS
               </a>
             
           </div>
@@ -389,10 +499,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/26/Financial Risk Management Lecture 12/" rel="prev" title="Financial Risk Management Lecture 12">
-                Financial Risk Management Lecture 12 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -451,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -505,6 +620,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems"><span class="nav-number">1.</span> <span class="nav-text">Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IS-LAPACK-Multi-threaded"><span class="nav-number">1.1.</span> <span class="nav-text">IS LAPACK Multi-threaded?</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
