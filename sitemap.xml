@@ -2,16 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/</loc>
+    <loc>https://sibylau.github.io/2018/12/28/%E9%87%91%E8%9E%8D%E5%B7%A5%E7%A8%8BReview/</loc>
     
-    <lastmod>2019-01-30T06:02:44.242Z</lastmod>
+    <lastmod>2019-02-21T14:10:30.562Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/01/21/2019-01-21/</loc>
+    
+    <lastmod>2019-02-21T14:08:48.383Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/</loc>
     
-    <lastmod>2019-01-30T06:02:29.560Z</lastmod>
+    <lastmod>2019-02-21T14:07:24.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/</loc>
+    
+    <lastmod>2019-02-21T14:05:53.147Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/</loc>
+    
+    <lastmod>2019-02-05T03:18:40.889Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/02/03/DAC18-BaseJump-STL-MBT/</loc>
+    
+    <lastmod>2019-02-03T01:55:44.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/02/01/ISCA18-Blinking-MBT/</loc>
+    
+    <lastmod>2019-02-02T16:12:13.881Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/01/30/Perls/</loc>
+    
+    <lastmod>2019-02-01T12:51:14.740Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sibylau.github.io/2019/01/31/GPU-Overview/</loc>
+    
+    <lastmod>2019-02-01T05:42:11.190Z</lastmod>
     
   </url>
   
@@ -19,13 +68,6 @@
     <loc>https://sibylau.github.io/2019/01/20/HPCA-19-PwrManager-Mutlu/</loc>
     
     <lastmod>2019-01-30T06:02:23.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/21/2019-01-21/</loc>
-    
-    <lastmod>2019-01-30T06:02:07.941Z</lastmod>
     
   </url>
   
@@ -44,44 +86,9 @@
   </url>
   
   <url>
-    <loc>https://sibylau.github.io/2018/12/28/%E9%87%91%E8%9E%8D%E5%B7%A5%E7%A8%8BReview/</loc>
-    
-    <lastmod>2019-01-30T05:39:45.994Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2018/12/25/LLVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2019-01-21T05:52:04.541Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://sibylau.github.io/2018/11/07/Hexo/</loc>
     
     <lastmod>2019-01-18T12:54:19.848Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/02/Perls/</loc>
-    
-    <lastmod>2019-01-02T03:28:08.235Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/01/Paper-EMAXVR-Near-ALU-Utilization-2018-IEEE-COOL-Chips/</loc>
-    
-    <lastmod>2019-01-01T00:56:28.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2018/12/28/GReP/</loc>
-    
-    <lastmod>2018-12-28T06:48:14.471Z</lastmod>
     
   </url>
   

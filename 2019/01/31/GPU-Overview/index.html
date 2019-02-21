@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Jie, Map">
+  <meta name="keywords" content="General,">
 
 
 
@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="GReP 编程指南  Shared Memory  Questions arbiter &amp;amp; controller?">
+<meta name="description" content="GPU OverviewBunch of threads: “warp” in Nvidia, “wavefront” in AMD “warp” is the smallest executable unit of code, processes a single instruction over all of the threads in it at the same time, is the">
+<meta name="keywords" content="General">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sibylau&#39;s Map">
-<meta property="og:url" content="https://sibylau.github.io/2018/12/28/GReP/index.html">
-<meta property="og:site_name" content="Sibylau&#39;s Map">
-<meta property="og:description" content="GReP 编程指南  Shared Memory  Questions arbiter &amp;amp; controller?">
+<meta property="og:title" content="GPU Overview">
+<meta property="og:url" content="https://sibylau.github.io/2019/01/31/GPU-Overview/index.html">
+<meta property="og:site_name" content="Sibylau&#39;s Blog">
+<meta property="og:description" content="GPU OverviewBunch of threads: “warp” in Nvidia, “wavefront” in AMD “warp” is the smallest executable unit of code, processes a single instruction over all of the threads in it at the same time, is the">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/Users/Sibyl/AppData/Roaming/Typora/typora-user-images/1545960622435.png">
-<meta property="og:updated_time" content="2018-12-28T06:48:14.471Z">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Fermi.svg/800px-Fermi.svg.png">
+<meta property="og:updated_time" content="2019-02-01T05:42:11.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sibylau&#39;s Map">
-<meta name="twitter:description" content="GReP 编程指南  Shared Memory  Questions arbiter &amp;amp; controller?">
-<meta name="twitter:image" content="c:/Users/Sibyl/AppData/Roaming/Typora/typora-user-images/1545960622435.png">
+<meta name="twitter:title" content="GPU Overview">
+<meta name="twitter:description" content="GPU OverviewBunch of threads: “warp” in Nvidia, “wavefront” in AMD “warp” is the smallest executable unit of code, processes a single instruction over all of the threads in it at the same time, is the">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Fermi.svg/800px-Fermi.svg.png">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://sibylau.github.io/2018/12/28/GReP/">
+  <link rel="canonical" href="https://sibylau.github.io/2019/01/31/GPU-Overview/">
 
 
 
 
 
-  <title> | Sibylau's Map</title>
+  <title>GPU Overview | Sibylau's Blog</title>
   
 
 
@@ -157,7 +158,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Sibylau's Map</span>
+        <span class="site-title">Sibylau's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -274,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2018/12/28/GReP/">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/31/GPU-Overview/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Liu">
@@ -283,7 +284,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sibylau's Map">
+      <meta itemprop="name" content="Sibylau's Blog">
     </span>
 
     
@@ -291,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">GPU Overview</h1>
         
 
         <div class="post-meta">
@@ -303,8 +304,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T09:24:59+08:00">
-                2018-12-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T14:56:28+08:00">
+                2019-01-31
               </time>
             
 
@@ -322,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/28/GReP/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/12/28/GReP/" itemprop="commentsCount"></span>
+                <a href="/2019/01/31/GPU-Overview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/01/31/GPU-Overview/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -351,13 +352,59 @@
       
 
       
-        <h3 id="GReP-编程指南"><a href="#GReP-编程指南" class="headerlink" title="GReP 编程指南"></a>GReP 编程指南</h3><p><img src="C:\Users\Sibyl\AppData\Roaming\Typora\typora-user-images\1545960622435.png" alt="1545960622435"></p>
-<blockquote>
-<p>Shared Memory</p>
-</blockquote>
-<h4 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h4><ul>
-<li>arbiter &amp; controller?</li>
-<li></li>
+        <h2 id="GPU-Overview"><a href="#GPU-Overview" class="headerlink" title="GPU Overview"></a>GPU Overview</h2><h3 id="Bunch-of-threads-“warp”-in-Nvidia-“wavefront”-in-AMD"><a href="#Bunch-of-threads-“warp”-in-Nvidia-“wavefront”-in-AMD" class="headerlink" title="Bunch of threads: “warp” in Nvidia, “wavefront” in AMD"></a>Bunch of threads: “warp” in Nvidia, “wavefront” in AMD</h3><ul>
+<li>“warp” is the smallest executable unit of code, processes a single instruction over all of the threads in it at the same time, is the minimum size of the data processed in <a href="http://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener">SIMD</a> fashion</li>
+<li>sp: streaming processor</li>
+</ul>
+<h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><ul>
+<li><p>GPU hardware</p>
+<ul>
+<li>SP: streaming processor</li>
+<li>SM streaming multiprocessor = SP+warp scheduler+register+shared memory</li>
+</ul>
+</li>
+<li><p>CUDA software:</p>
+<ul>
+<li>thread)block)grid</li>
+<li>warp: thread SIMT<ul>
+<li>SIMD要求所有的vector element在一个统一的同步组里同步的执行，而SIMT允许线程们在一个warp中独立的执行 ，SIMT更灵活。SIMT中每个thread拥有自己的instruction address counter、状态寄存器和独立的执行路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>同一个block中的threads必然在同一个SM中SIMT并行</strong>.block一旦被分配好SM，该block就会一直驻留在该SM中，直到执行结束。一个SM可以同时拥有多个blocks，但需要seriel执行。</li>
+<li>一个SP可以执行一个thread，一个warp需要占用一个SM运行，多个warps需要轮流进入SM。active warps被SM资源限制。当一个warp空闲时，SM就可以调度驻留在该SM中另一个可用warp。</li>
+<li>SM的硬件warp scheduler负责调度。</li>
+</ul>
+<h2 id="Nvidia"><a href="#Nvidia" class="headerlink" title="Nvidia"></a>Nvidia</h2><h3 id="Tesla-Fermi-Kepler-Maxwell-Pascal"><a href="#Tesla-Fermi-Kepler-Maxwell-Pascal" class="headerlink" title="Tesla/Fermi/Kepler/Maxwell/Pascal"></a>Tesla/Fermi/Kepler/Maxwell/Pascal</h3><p><em>Tesla</em>:</p>
+<ul>
+<li>released in 2006</li>
+<li>Nvidia’s first microarchitecture to implement unified shaders 着色器</li>
+<li>replaced the old <a href="https://en.wikipedia.org/wiki/Pipeline_(computing" target="_blank" rel="noopener">fixed-pipeline</a>) microarchitectures</li>
+</ul>
+<p><em>Fermi</em>: </p>
+<ul>
+<li><p>release to retail on April 2010.</p>
+</li>
+<li><p>An SM consists of 32 CUDA cores.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Fermi.svg/800px-Fermi.svg.png" alt="img" title="orange - scheduling and dispatch; green - execution; light blue -registers and caches.">{: height=”60px” width=”20px”}</p>
+</li>
+</ul>
+<p><em>Kepler</em>: <em>April 2012</em></p>
+<ul>
+<li>An SM consists of 192 CUDA cores.</li>
+<li>Nvidia’s first microarchitecture to focus on energy efficiency.</li>
+</ul>
+<p><em>Maxwell</em>: <em>February 18, 2014</em></p>
+<ul>
+<li>An SM consists of 128 CUDA cores.</li>
+</ul>
+<p><em>Pascal</em>: <em>April 2016</em></p>
+<p>The Pascal architecture features <a href="https://en.wikipedia.org/wiki/High_Bandwidth_Memory" target="_blank" rel="noopener">High Bandwidth Memory</a>, <a href="https://en.wikipedia.org/wiki/Unified_Memory_Architecture" target="_blank" rel="noopener">Unified Memory</a>, and <a href="https://en.wikipedia.org/wiki/NVLink" target="_blank" rel="noopener">NVLink</a>.</p>
+<ul>
+<li>An SM consists of 128 CUDA cores.</li>
 </ul>
 
       
@@ -374,6 +421,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/General/" rel="tag"># General</a>
+          
+        </div>
+      
 
       
       
@@ -383,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/26/Financial Risk Management Lecture 12/" rel="next" title="Financial Risk Management Lecture 12">
-                <i class="fa fa-chevron-left"></i> Financial Risk Management Lecture 12
+              <a href="/2019/01/30/Perls/" rel="next" title="Pearls">
+                <i class="fa fa-chevron-left"></i> Pearls
               </a>
             
           </div>
@@ -393,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/28/金融工程Review/" rel="prev" title="金融工程Review">
-                金融工程Review <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/01/ISCA18-Blinking-MBT/" rel="prev" title="DAC12-Dark Silicon-MBT">
+                DAC12-Dark Silicon-MBT <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -481,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -527,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GReP-编程指南"><span class="nav-number">1.</span> <span class="nav-text">GReP 编程指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Questions"><span class="nav-number">1.1.</span> <span class="nav-text">Questions</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU-Overview"><span class="nav-number">1.</span> <span class="nav-text">GPU Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bunch-of-threads-“warp”-in-Nvidia-“wavefront”-in-AMD"><span class="nav-number">1.1.</span> <span class="nav-text">Bunch of threads: “warp” in Nvidia, “wavefront” in AMD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA"><span class="nav-number">2.</span> <span class="nav-text">CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nvidia"><span class="nav-number">3.</span> <span class="nav-text">Nvidia</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tesla-Fermi-Kepler-Maxwell-Pascal"><span class="nav-number">3.1.</span> <span class="nav-text">Tesla/Fermi/Kepler/Maxwell/Pascal</span></a></li></ol></li></ol></div>
             
 
           </div>

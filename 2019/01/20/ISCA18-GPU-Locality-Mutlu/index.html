@@ -84,17 +84,17 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ISCA18-GPU-Locality-Mutlu">
 <meta property="og:url" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/index.html">
-<meta property="og:site_name" content="Sibylau&#39;s Map">
+<meta property="og:site_name" content="Sibylau&#39;s Blog">
 <meta property="og:description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png">
-<meta property="og:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973492020.png">
-<meta property="og:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547974536676.png">
-<meta property="og:updated_time" content="2019-01-30T06:02:29.560Z">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/1.png">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/2.png">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/3.png">
+<meta property="og:updated_time" content="2019-02-21T14:07:24.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISCA18-GPU-Locality-Mutlu">
 <meta name="twitter:description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
-<meta name="twitter:image" content="f:/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png">
+<meta name="twitter:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/1.png">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>ISCA18-GPU-Locality-Mutlu | Sibylau's Map</title>
+  <title>ISCA18-GPU-Locality-Mutlu | Sibylau's Blog</title>
   
 
 
@@ -160,7 +160,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Sibylau's Map</span>
+        <span class="site-title">Sibylau's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -286,7 +286,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sibylau's Map">
+      <meta itemprop="name" content="Sibylau's Blog">
     </span>
 
     
@@ -362,11 +362,11 @@
 <blockquote>
 <p>Memory Wall : </p>
 </blockquote>
-<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973400329.png" alt="1547973400329"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\1.png" alt="1547973400329"></p>
 <blockquote>
 <p>Power wall</p>
 </blockquote>
-<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547973492020.png" alt="1547973492020"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\2.png" alt="1547973492020"></p>
 <p>Little’s Law: data = throughput * latency</p>
 <p>Sources of Parallelism:</p>
 <ul>
@@ -376,10 +376,12 @@
 </ul>
 <p>“Horizontal level” parallelism for throughput: more units working in parallel</p>
 <p>“vertical level” parallelism for latency hiding: pipelining </p>
-<p><img src="F:\Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1547974536676.png" alt="1547974536676"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\3.png" alt="1547974536676"></p>
 <p>NUMA (non-uniform memory access): a computer memory design in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory, that is, memory local to another processor or memory shared between processors. In a NUMA system, processors, memory, and I/O are grouped together into cells. The latency and bandwidth characteristics of communication within a cell are “fast” while going outside a cell is “slow”. Since the memory in NUMA systems is physically distributed but logically shared, these systems offer better performance to applications that are optimized to use their features. For non-optimized applications, they still offer better performance since the default behavior is designed to be benign if not beneficial and they still have access to much larger shared resources of memory, CPUs, and disk space. </p>
 <blockquote>
-<p>Cooperative thread array (CTA): <a href="https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf" target="_blank" rel="noopener">https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf</a></p>
+<p>Cooperative thread array (CTA): </p>
+<p><a href="https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf" target="_blank" rel="noopener">https://users.ece.cmu.edu/~omutlu/pub/owl_asplos13.pdf</a></p>
+<p><a href="http://www.nbi.dk/~weifeng/papers/ctaclustering_li_asplos17.pdf" target="_blank" rel="noopener">http://www.nbi.dk/~weifeng/papers/ctaclustering_li_asplos17.pdf</a></p>
 </blockquote>
 <h2 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h2><h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
 <li>NUMA-based hierarchy is expected in future GPUs</li>
@@ -425,7 +427,7 @@
 <li>challenges<ul>
 <li>no explicit interfaces<ul>
 <li>hard for software: techs like thread scheduling, cache bypassing/prioritization, prefetching</li>
-<li>inter-CTA(or thread blocks), inter-warp, intra-warp locality</li>
+<li>inter-CTA (or thread blocks), inter-warp, intra-warp locality</li>
 <li>not portable: fine-grained, across different architecture with a different CTA scheduler</li>
 </ul>
 </li>
@@ -433,11 +435,10 @@
 </ul>
 </li>
 <li>case study<ul>
-<li><em>histo</em> benchmark: </li>
+<li><em>histo</em> benchmark:</li>
 </ul>
 </li>
 </ul>
-<p>问涂师兄memory文章的事情。</p>
 
       
     </div>
@@ -480,8 +481,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/21/2019-01-21/" rel="prev" title="Mon Jan 21 2019 00:00:00 GMT+0800 (China Standard Time)">
-                Mon Jan 21 2019 00:00:00 GMT+0800 (China Standard Time) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/21/2019-01-21/" rel="prev" title="2019-01-21日记">
+                2019-01-21日记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -568,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

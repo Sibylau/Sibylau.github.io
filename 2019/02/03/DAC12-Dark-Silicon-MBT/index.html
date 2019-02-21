@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/1.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mid.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Paper,DAC,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="URL: http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf Dark Silicon Where once we would spend exponentially increasing amounts of silicon area to buy performance, now, we wi">
+<meta name="keywords" content="Paper,DAC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAC12-Dark Silicon-MBT">
+<meta property="og:url" content="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/index.html">
+<meta property="og:site_name" content="Sibylau&#39;s Blog">
+<meta property="og:description" content="URL: http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf Dark Silicon Where once we would spend exponentially increasing amounts of silicon area to buy performance, now, we wi">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/Blog/source/_posts/DAC12-Dark-Silicon-MBT/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549263463437.png">
+<meta property="og:image" content="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/Blog/source/_posts/DAC12-Dark-Silicon-MBT/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549185455055.png">
+<meta property="og:image" content="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/Blog/source/_posts/DAC12-Dark-Silicon-MBT/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549249082490.png">
+<meta property="og:updated_time" content="2019-02-05T03:18:40.889Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DAC12-Dark Silicon-MBT">
+<meta name="twitter:description" content="URL: http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf Dark Silicon Where once we would spend exponentially increasing amounts of silicon area to buy performance, now, we wi">
+<meta name="twitter:image" content="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/Blog/source/_posts/DAC12-Dark-Silicon-MBT/%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549263463437.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/">
+
+
+
+
+
+  <title>DAC12-Dark Silicon-MBT | Sibylau's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sibylau's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DAC12-Dark Silicon-MBT</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-03T09:55:44+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/03/DAC12-Dark-Silicon-MBT/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/02/03/DAC12-Dark-Silicon-MBT/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2019/02/03/DAC12-Dark-Silicon-MBT/Blog\source\_posts\DAC12-Dark-Silicon-MBT\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549263463437.png" alt="1549263463437"></p>
+<p>URL: <a href="http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf" target="_blank" rel="noopener">http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf</a></p>
+<h2 id="Dark-Silicon"><a href="#Dark-Silicon" class="headerlink" title="Dark Silicon"></a>Dark Silicon</h2><ul>
+<li>Where once we would spend exponentially increasing amounts of silicon area to buy <strong>performance</strong>, now, we will spend exponentially increasing amounts of silicon area to buy <strong>energy efficiency</strong>.</li>
+</ul>
+<h2 id="Utilization-Wall"><a href="#Utilization-Wall" class="headerlink" title="Utilization Wall"></a>Utilization Wall</h2><h4 id="The-cause-of-dark-silicon"><a href="#The-cause-of-dark-silicon" class="headerlink" title="The cause of dark silicon"></a>The cause of dark silicon</h4><p>$S=1.4x$ </p>
+<ul>
+<li>transistor count - $S^2​$  </li>
+<li>transistor switching frequency - $S$ </li>
+</ul>
+<p>computing performance - $S^3=2.8x​$</p>
+<ul>
+<li>transistor capacitance reduce - $S​$  </li>
+<li>In Dennard Scaling, the voltage - $S$</li>
+</ul>
+<p>Energy efficiency - $S^2$ </p>
+<ul>
+<li>In Post-Dennard Scaling (leakage limited), the voltage - const</li>
+</ul>
+<p>shortfall - $S^2$ per process generation</p>
+<p>We only have energy budget to receive 1.4x improvement - either on core count or frequency increase, or the combination of both. (or more complicated factors such as application space or cache size.)</p>
+<p><img src="/2019/02/03/DAC12-Dark-Silicon-MBT/Blog\source\_posts\DAC12-Dark-Silicon-MBT\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549185455055.png" alt="1549185455055"></p>
+<h2 id="THE-SHRINKING-HORSEMAN"><a href="#THE-SHRINKING-HORSEMAN" class="headerlink" title="THE SHRINKING HORSEMAN"></a>THE SHRINKING HORSEMAN</h2><h4 id="Shrinking-Chip-most-pessimistic"><a href="#Shrinking-Chip-most-pessimistic" class="headerlink" title="Shrinking Chip - most pessimistic"></a>Shrinking Chip - most pessimistic</h4><p>“Area is expensive, let’s design smaller chips!”</p>
+<h4 id="Misconceptions"><a href="#Misconceptions" class="headerlink" title="Misconceptions"></a>Misconceptions</h4><ul>
+<li>dark does not mean unused, just not full frequency</li>
+</ul>
+<h4 id="COST"><a href="#COST" class="headerlink" title="COST"></a>COST</h4><ul>
+<li>The cost of system would be a tiny fraction of packaging and test costs, let alone system, marketing, sales, support and other costs. </li>
+</ul>
+<h4 id="Power-Issues"><a href="#Power-Issues" class="headerlink" title="Power Issues"></a>Power Issues</h4><p><img src="/2019/02/03/DAC12-Dark-Silicon-MBT/Blog\source\_posts\DAC12-Dark-Silicon-MBT\%5CUsers%5CSibyl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1549249082490.png" alt="1549249082490"></p>
+<p>Area $\downarrow​$ , $T_{max} \uparrow​$.</p>
+<h2 id="THE-DIM-HORSEMAN"><a href="#THE-DIM-HORSEMAN" class="headerlink" title="THE DIM HORSEMAN"></a>THE DIM HORSEMAN</h2><p>General-purpose logics</p>
+<ul>
+<li>Near-Threshold Voltage Processors</li>
+</ul>
+<p>Performance cost by dropping operating voltage can be offset by incorporating more processors. Not robust to fabrication variation.</p>
+<ul>
+<li>Bigger Caches</li>
+</ul>
+<p>Use dark silicon area for caches. Increased cache sizes can carry both performance and energy benefits for miss-intensive applications.</p>
+<ul>
+<li>CGRA</li>
+</ul>
+<p>A recurring dim alternative is the use of reconfigurable logic.</p>
+<p>The idea is to naturally lay out the datapaths of the computation in space to avoid the multiplexing costs that are inherent to processor pipelines.</p>
+<p>The duty cycle of CGRA elements is very low, making it a potential fit exploiting dark silicon.</p>
+<p>Like to look at old designs with fresher eyes.</p>
+<ul>
+<li>Computational Sprinting and Turbo Boost</li>
+</ul>
+<p>To use “temporal dimness” as opposed to “spatial dimness”.</p>
+<h2 id="THE-SPECIALIZED-HORSEMAN"><a href="#THE-SPECIALIZED-HORSEMAN" class="headerlink" title="THE SPECIALIZED HORSEMAN"></a>THE SPECIALIZED HORSEMAN</h2><p><code>CoDAs</code> (Coprocessor Dominated Architectures): Execution hops among coprocessors and general purpose cores, executing where it is most efficient. At the same time, the unused cores are power- and clock- gated to keep them from consuming precious energy.</p>
+<p><code>“tower-of-babel” crisis</code>: communication between SOFTware and HARDware. e.g. CUDA not applicable between AMD and Nvidia (Over-specialization)</p>
+<ul>
+<li>Excessive cost of programming heterogeneous hardware.</li>
+<li>being obsolete as standards are revised</li>
+</ul>
+<p>Requires:</p>
+<ul>
+<li><p>Insulating humans from complexity of underlying systems</p>
+<ul>
+<li>pervasively specialized hardware </li>
+</ul>
+</li>
+<li><p>Overcoming Amdahl-Imposed Limits on Specialization</p>
+<ul>
+<li>Amdahl’s Law: theoretical speedup $S_{Latency}(s)=\frac{1}{(1-p)+\frac{p}{s}}{\le}\frac{1}{1-p}$<ul>
+<li>p: proportion of parallelizable part (benefiting from improved resources)</li>
+<li>s: speedup of parallelizable part</li>
+<li><a href="https://en.wikipedia.org/wiki/Amdahl%27s_law" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Amdahl%27s_law</a></li>
+<li>a roadblock</li>
+</ul>
+</li>
+<li>to find broad-based specialization approaches that handles not only regular, parallel code, but also irregular code</li>
+</ul>
+</li>
+</ul>
+<h2 id="THE-DEUS-EX-MACHINA-HORSEMAN"><a href="#THE-DEUS-EX-MACHINA-HORSEMAN" class="headerlink" title="THE DEUS EX MACHINA HORSEMAN"></a>THE DEUS EX MACHINA HORSEMAN</h2><p><code>Deus Ex Machina</code> a plot device in literature or theatre in which the protagonists seem utterly doomed, and then something completely unexpected and unforeshadowed comes out of nowhere to save the day.</p>
+<p>超越MOSFET亚阈值斜率60mV/dB的限制，不基于MOS器件的新型器件。</p>
+<ul>
+<li>Tunnel Field Effect Transistors (TFETS): tunneling effects</li>
+<li>Nano-Electro-Mechanical switches: physical switches</li>
+</ul>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
+<li>data-parallelism is the most energy-efficient parallelism?</li>
+<li></li>
+</ul>
+<h2 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h2><p>Apocalypse: 末日般的毁灭</p>
+<p>envision: 预见</p>
+<p>pervasively specialized architecture</p>
+<p>top contenders: 有力竞争者</p>
+<p>disruptive regime: 破坏制度</p>
+<p>large swaths of our silicon area: 硅片的大片区域</p>
+<p>jar-dropping: amazing</p>
+<p>bump up against the problem: 碰到问题</p>
+<p>tweak our circuit</p>
+<p>as to: with respect to</p>
+<p>as a whole</p>
+<p>low-margin business: 低利润</p>
+<p>call for us to do</p>
+<p>amortize: 摊销，分期清偿</p>
+<p>plummet: 猛跌，极速下降</p>
+<p>high-end/low-end: 高端、低端</p>
+<p>lieu: instead替代 in lieu of</p>
+<p>heatsink: 散热器，absorbing excessive and unwanted heat</p>
+<p>convection: 对流</p>
+<p>Barring: 除了</p>
+<p>through-silicon vias (TSVs): 硅通孔</p>
+<p>subthreshold: 亚阈值</p>
+<p>protagonist：主角 the leading character or one of the major characters in a drama, movie, novel, or other fictional text.</p>
+<p>a host of: 一系列</p>
+<p>proliferation of </p>
+<p>extrapolate</p>
+<p>fragment v. 分割破坏</p>
+<p>speak to: 说明了</p>
+<p>roadblock: 路障</p>
+<p>in question: 在讨论范畴内的</p>
+<p>patching: 打补丁 mend or strengthen (fabric or an item of clothing) by putting a piece of material over a hole or weak point in it.</p>
+<p>attain: achieve 达到</p>
+<p>user-intervention 介入</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Paper/" rel="tag"># Paper</a>
+          
+            <a href="/tags/DAC/" rel="tag"># DAC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/01/ISCA18-Blinking-MBT/" rel="next" title="DAC12-Dark Silicon-MBT">
+                <i class="fa fa-chevron-left"></i> DAC12-Dark Silicon-MBT
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/03/DAC18-BaseJump-STL-MBT/" rel="prev" title="DAC18-BaseJump STL-MBT">
+                DAC18-BaseJump STL-MBT <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/2.jpg" alt="Jie Liu">
+            
+              <p class="site-author-name" itemprop="name">Jie Liu</p>
+              <p class="site-description motion-element" itemprop="description">幽人竹桑园 归卧寂无喧</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dark-Silicon"><span class="nav-number">1.</span> <span class="nav-text">Dark Silicon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Utilization-Wall"><span class="nav-number">2.</span> <span class="nav-text">Utilization Wall</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-cause-of-dark-silicon"><span class="nav-number">2.0.1.</span> <span class="nav-text">The cause of dark silicon</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-SHRINKING-HORSEMAN"><span class="nav-number">3.</span> <span class="nav-text">THE SHRINKING HORSEMAN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shrinking-Chip-most-pessimistic"><span class="nav-number">3.0.1.</span> <span class="nav-text">Shrinking Chip - most pessimistic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Misconceptions"><span class="nav-number">3.0.2.</span> <span class="nav-text">Misconceptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#COST"><span class="nav-number">3.0.3.</span> <span class="nav-text">COST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Power-Issues"><span class="nav-number">3.0.4.</span> <span class="nav-text">Power Issues</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-DIM-HORSEMAN"><span class="nav-number">4.</span> <span class="nav-text">THE DIM HORSEMAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-SPECIALIZED-HORSEMAN"><span class="nav-number">5.</span> <span class="nav-text">THE SPECIALIZED HORSEMAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-DEUS-EX-MACHINA-HORSEMAN"><span class="nav-number">6.</span> <span class="nav-text">THE DEUS EX MACHINA HORSEMAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Questions"><span class="nav-number">7.</span> <span class="nav-text">Questions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#New-Words"><span class="nav-number">8.</span> <span class="nav-text">New Words</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-tree"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jie Liu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'Sibylau',
+            repo: 'sibylau.github.io',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'af3d8ea72fb3aba27c5ec2595f8d03b019f54554',
+            
+                client_id: '171cbe6cc35fc0cbe6ab'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
