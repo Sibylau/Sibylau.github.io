@@ -272,132 +272,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/21/2019-01-21/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jie Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/2.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sibylau's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/21/2019-01-21/" itemprop="url">2019-01-21日记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-21T15:19:49+08:00">
-                2019-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近想了好久，人生的意义是什么呢。</p>
-<p>作为一个从小就排斥写日记又不喜欢历史的人，这个问题我从来都不屑于去想的。</p>
-<p>但是最近大大小小的事情缠身，本科时光仿佛倏尔远逝，人生似乎一下子能看到尽头，这个问题就涌上来了。大概是十几天前，期末复习的时候，图书馆里静坐的时候，突然不喜欢复习了，就开始想这些有的没的。昨天实验室师兄去问老师毕业的事情，聊了好久，今天看代码的时候走神又开始陷入迷思。</p>
-<p>所以人生的意义是什么呢。我打算先把现在的一点思路记录下来。</p>
-<p>所谓主观能动性吧…</p>
-<p>你看一棵树，一只蚂蚁，一片云，仿佛自由自在，可是它们本质却不是自由的，它们有自己照本宣科的生命轨迹。人却不一样了，虽然生老病死，命由天定，但我们的理智与情感却能很清楚的分辨，人生和人生之间是天差地别的。我开始有点明白了，我思故我在是真的。</p>
-<p>师兄跟我说，我还年轻。我知道，这种无所用心的日子很快就消磨过去，年龄就不知不觉增加了。所以，掌握这种自由，去用心把时光填满，才是人生的意义吧。当垂垂老矣的时候，无需问自己为身外的一切贡献了多少变化，作为一个有自由意识的生命体，我深感不虚此行，了无牵挂，就实现了人生的意义吧。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -477,11 +351,11 @@
 <blockquote>
 <p>Memory Wall : </p>
 </blockquote>
-<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\1.png" alt="1547973400329"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/1.png" alt="1547973400329"></p>
 <blockquote>
 <p>Power wall</p>
 </blockquote>
-<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\2.png" alt="1547973492020"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/2.png" alt="1547973492020"></p>
 <p>Little’s Law: data = throughput * latency</p>
 <p>Sources of Parallelism:</p>
 <ul>
@@ -491,7 +365,7 @@
 </ul>
 <p>“Horizontal level” parallelism for throughput: more units working in parallel</p>
 <p>“vertical level” parallelism for latency hiding: pipelining </p>
-<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\3.png" alt="1547974536676"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/3.png" alt="1547974536676"></p>
 <p>NUMA (non-uniform memory access): a computer memory design in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory, that is, memory local to another processor or memory shared between processors. In a NUMA system, processors, memory, and I/O are grouped together into cells. The latency and bandwidth characteristics of communication within a cell are “fast” while going outside a cell is “slow”. Since the memory in NUMA systems is physically distributed but logically shared, these systems offer better performance to applications that are optimized to use their features. For non-optimized applications, they still offer better performance since the default behavior is designed to be benign if not beneficial and they still have access to much larger shared resources of memory, CPUs, and disk space. </p>
 <blockquote>
 <p>Cooperative thread array (CTA): </p>
@@ -589,6 +463,130 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/20/HPCA-19-PwrManager-Mutlu/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jie Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sibylau's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/20/HPCA-19-PwrManager-Mutlu/" itemprop="url">HPCA'19-PwrManager-Mutlu</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T12:57:21+08:00">
+                2019-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Background-Knowledge"><a href="#Background-Knowledge" class="headerlink" title="Background Knowledge"></a>Background Knowledge</h2><p><em>Power Budget</em> : 预算</p>
+<p><em>High Availability</em> : <a href="https://en.wikipedia.org/wiki/Availability" target="_blank" rel="noopener">Availability</a> refers to the ability of the user community to obtain a service or good. Availability is usually expressed as a percentage of uptime in a given year.</p>
+<p><em>power distribution infrastructures</em> : power supplies(电源), power feeds(送电器), circuit breaker(断电器)</p>
+<p><em>Power distribution hierarchy</em> ? </p>
+<p>这竟然是一篇强电的文章……</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -641,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

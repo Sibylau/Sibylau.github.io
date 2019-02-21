@@ -510,7 +510,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/02/01/ISCA18-Blinking-MBT/">
+    <link itemprop="mainEntityOfPage" href="https://sibylau.github.io/2019/01/31/GPU-Overview/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Liu">
@@ -529,7 +529,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/01/ISCA18-Blinking-MBT/" itemprop="url">DAC12-Dark Silicon-MBT</a></h1>
+                <a class="post-title-link" href="/2019/01/31/GPU-Overview/" itemprop="url">GPU Overview</a></h1>
         
 
         <div class="post-meta">
@@ -541,8 +541,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T13:44:14+08:00">
-                2019-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T14:56:28+08:00">
+                2019-01-31
               </time>
             
 
@@ -581,10 +581,60 @@
       
         
           
-            <p>URL: <a href="http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf" target="_blank" rel="noopener">http://www.darksilicon.org/papers/taylor_dark_silicon_horsemen_dac_2012.pdf</a></p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>area变成cheap resource</p>
-<h2 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h2><p>ramifications 衍生物，后果，分支</p>
-<p>impose 强加于</p>
+            <h2 id="GPU-Overview"><a href="#GPU-Overview" class="headerlink" title="GPU Overview"></a>GPU Overview</h2><h3 id="Bunch-of-threads-“warp”-in-Nvidia-“wavefront”-in-AMD"><a href="#Bunch-of-threads-“warp”-in-Nvidia-“wavefront”-in-AMD" class="headerlink" title="Bunch of threads: “warp” in Nvidia, “wavefront” in AMD"></a>Bunch of threads: “warp” in Nvidia, “wavefront” in AMD</h3><ul>
+<li>“warp” is the smallest executable unit of code, processes a single instruction over all of the threads in it at the same time, is the minimum size of the data processed in <a href="http://en.wikipedia.org/wiki/SIMD" target="_blank" rel="noopener">SIMD</a> fashion</li>
+<li>sp: streaming processor</li>
+</ul>
+<h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><ul>
+<li><p>GPU hardware</p>
+<ul>
+<li>SP: streaming processor</li>
+<li>SM streaming multiprocessor = SP+warp scheduler+register+shared memory</li>
+</ul>
+</li>
+<li><p>CUDA software:</p>
+<ul>
+<li>thread)block)grid</li>
+<li>warp: thread SIMT<ul>
+<li>SIMD要求所有的vector element在一个统一的同步组里同步的执行，而SIMT允许线程们在一个warp中独立的执行 ，SIMT更灵活。SIMT中每个thread拥有自己的instruction address counter、状态寄存器和独立的执行路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>同一个block中的threads必然在同一个SM中SIMT并行</strong>.block一旦被分配好SM，该block就会一直驻留在该SM中，直到执行结束。一个SM可以同时拥有多个blocks，但需要seriel执行。</li>
+<li>一个SP可以执行一个thread，一个warp需要占用一个SM运行，多个warps需要轮流进入SM。active warps被SM资源限制。当一个warp空闲时，SM就可以调度驻留在该SM中另一个可用warp。</li>
+<li>SM的硬件warp scheduler负责调度。</li>
+</ul>
+<h2 id="Nvidia"><a href="#Nvidia" class="headerlink" title="Nvidia"></a>Nvidia</h2><h3 id="Tesla-Fermi-Kepler-Maxwell-Pascal"><a href="#Tesla-Fermi-Kepler-Maxwell-Pascal" class="headerlink" title="Tesla/Fermi/Kepler/Maxwell/Pascal"></a>Tesla/Fermi/Kepler/Maxwell/Pascal</h3><p><em>Tesla</em>:</p>
+<ul>
+<li>released in 2006</li>
+<li>Nvidia’s first microarchitecture to implement unified shaders 着色器</li>
+<li>replaced the old <a href="https://en.wikipedia.org/wiki/Pipeline_(computing" target="_blank" rel="noopener">fixed-pipeline</a>) microarchitectures</li>
+</ul>
+<p><em>Fermi</em>: </p>
+<ul>
+<li><p>release to retail on April 2010.</p>
+</li>
+<li><p>An SM consists of 32 CUDA cores.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Fermi.svg/800px-Fermi.svg.png" alt="img" title="orange - scheduling and dispatch; green - execution; light blue -registers and caches.">{: height=”60px” width=”20px”}</p>
+</li>
+</ul>
+<p><em>Kepler</em>: <em>April 2012</em></p>
+<ul>
+<li>An SM consists of 192 CUDA cores.</li>
+<li>Nvidia’s first microarchitecture to focus on energy efficiency.</li>
+</ul>
+<p><em>Maxwell</em>: <em>February 18, 2014</em></p>
+<ul>
+<li>An SM consists of 128 CUDA cores.</li>
+</ul>
+<p><em>Pascal</em>: <em>April 2016</em></p>
+<p>The Pascal architecture features <a href="https://en.wikipedia.org/wiki/High_Bandwidth_Memory" target="_blank" rel="noopener">High Bandwidth Memory</a>, <a href="https://en.wikipedia.org/wiki/Unified_Memory_Architecture" target="_blank" rel="noopener">Unified Memory</a>, and <a href="https://en.wikipedia.org/wiki/NVLink" target="_blank" rel="noopener">NVLink</a>.</p>
+<ul>
+<li>An SM consists of 128 CUDA cores.</li>
+</ul>
 
           
         
@@ -672,7 +722,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

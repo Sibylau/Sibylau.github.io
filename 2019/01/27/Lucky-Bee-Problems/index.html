@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="Sibylau&#39;s Blog">
 <meta property="og:description" content="ProblemsIS LAPACK Multi-threaded?Statement: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。  现象：  cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/Blog/source/_posts/Lucky-Bee-Problems/1.jpg">
-<meta property="og:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/Blog/source/_posts/Lucky-Bee-Problems/2.jpg">
-<meta property="og:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/Blog/source/_posts/Lucky-Bee-Problems/3.jpg">
-<meta property="og:updated_time" content="2019-02-21T14:05:53.147Z">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/1.jpg">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/2.jpg">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/3.jpg">
+<meta property="og:updated_time" content="2019-02-21T14:41:34.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lucky Bee - Problems">
 <meta name="twitter:description" content="ProblemsIS LAPACK Multi-threaded?Statement: LAPACK+BLAS（都是Netlib上下载安装的），应该是只支持单线程。但在实验的过程中，发现Cholesky分解确实是单线程，LU分解却是多线程的（使用top或htop查看）。  现象：  cholesky: 8x8, 16x16, 32x32, 64x64, 128x128, 256x256, 512x">
-<meta name="twitter:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/Blog/source/_posts/Lucky-Bee-Problems/1.jpg">
+<meta name="twitter:image" content="https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/1.jpg">
 
 
 
@@ -405,7 +405,7 @@
 </ul>
 </li>
 <li><p>一个比较权威的lapack-forum问答 <a href="http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=2&amp;t=1625" target="_blank" rel="noopener">http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=2&amp;t=1625</a></p>
-<p><img src="/2019/01/27/Lucky-Bee-Problems/Blog\source\_posts\Lucky-Bee-Problems\1.jpg" alt="1548609403899"></p>
+<p><img src="/2019/01/27/Lucky-Bee-Problems/1.jpg" alt="1548609403899"></p>
 </li>
 </ul>
 <p>问问题的这个同学用ATLAS-BLAS编译CLAPACK，发现调BLAS可以multi thread，但是调CLAPACK就一定是单线程。回答的Julie是LAPACK主要开发者。时间2009年比较可疑。最新版LAPACK是2017年release的。老版本不支持LAPACK是真的。开发者们好像是想为进一步提升性能努力。</p>
@@ -419,8 +419,8 @@
 <li><p>API that supports multi-platform <a href="https://en.wikipedia.org/wiki/Shared_memory_architecture" target="_blank" rel="noopener">shared memory</a> <a href="https://en.wikipedia.org/wiki/Multiprocessing" target="_blank" rel="noopener">multiprocessing </a>programming in <a href="https://en.wikipedia.org/wiki/C_(programming_language" target="_blank" rel="noopener">C</a>), <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener">C++</a>, and <a href="https://en.wikipedia.org/wiki/Fortran" target="_blank" rel="noopener">Fortran</a></p>
 </li>
 <li><p>2017版的LAPACK（就是我的3.8.0）中调用了OpenMP来实现Fortran的多线程（直接在github搜还是比grep快一些！）</p>
-<p><img src="/2019/01/27/Lucky-Bee-Problems/Blog\source\_posts\Lucky-Bee-Problems\2.jpg" alt="1548609403899"></p>
-<p><img src="/2019/01/27/Lucky-Bee-Problems/Blog\source\_posts\Lucky-Bee-Problems\3.jpg" alt="1548609403899"></p>
+<p><img src="/2019/01/27/Lucky-Bee-Problems/2.jpg" alt="1548609403899"></p>
+<p><img src="/2019/01/27/Lucky-Bee-Problems/3.jpg" alt="1548609403899"></p>
 <p>上面两图是$(LAPACK)/SRC/ssytrd_sb2st.F里的. </p>
 </li>
 </ul>
@@ -583,7 +583,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

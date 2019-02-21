@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="Sibylau&#39;s Blog">
 <meta property="og:description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/1.png">
-<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/2.png">
-<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/3.png">
-<meta property="og:updated_time" content="2019-02-21T14:07:24.289Z">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/1.png">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/2.png">
+<meta property="og:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/3.png">
+<meta property="og:updated_time" content="2019-02-21T14:41:10.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISCA18-GPU-Locality-Mutlu">
 <meta name="twitter:description" content="Paper URL: https://people.inf.ethz.ch/omutlu/pub/LocalityDescriptor-Cross-Layer-GPU-Data-Locality-Abstraction_isca18.pdf Background knowledgehttp://www.irisa.fr/alf/downloads/collange/cours/gpuprog_uf">
-<meta name="twitter:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog/source/_posts/ISCA18-GPU-Locality-Mutlu/1.png">
+<meta name="twitter:image" content="https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/1.png">
 
 
 
@@ -362,11 +362,11 @@
 <blockquote>
 <p>Memory Wall : </p>
 </blockquote>
-<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\1.png" alt="1547973400329"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/1.png" alt="1547973400329"></p>
 <blockquote>
 <p>Power wall</p>
 </blockquote>
-<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\2.png" alt="1547973492020"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/2.png" alt="1547973492020"></p>
 <p>Little’s Law: data = throughput * latency</p>
 <p>Sources of Parallelism:</p>
 <ul>
@@ -376,7 +376,7 @@
 </ul>
 <p>“Horizontal level” parallelism for throughput: more units working in parallel</p>
 <p>“vertical level” parallelism for latency hiding: pipelining </p>
-<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/Blog\source\_posts\ISCA18-GPU-Locality-Mutlu\3.png" alt="1547974536676"></p>
+<p><img src="/2019/01/20/ISCA18-GPU-Locality-Mutlu/3.png" alt="1547974536676"></p>
 <p>NUMA (non-uniform memory access): a computer memory design in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory, that is, memory local to another processor or memory shared between processors. In a NUMA system, processors, memory, and I/O are grouped together into cells. The latency and bandwidth characteristics of communication within a cell are “fast” while going outside a cell is “slow”. Since the memory in NUMA systems is physically distributed but logically shared, these systems offer better performance to applications that are optimized to use their features. For non-optimized applications, they still offer better performance since the default behavior is designed to be benign if not beneficial and they still have access to much larger shared resources of memory, CPUs, and disk space. </p>
 <blockquote>
 <p>Cooperative thread array (CTA): </p>
@@ -569,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
