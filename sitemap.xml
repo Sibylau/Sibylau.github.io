@@ -1,109 +1,89 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sibylau.github.io/2018/12/28/%E9%87%91%E8%9E%8D%E5%B7%A5%E7%A8%8BReview/</loc>
-    
-    <lastmod>2019-02-21T14:42:33.508Z</lastmod>
-    
+    <loc>https://example.com/home-unused/demo/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/skills/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/experience/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/accomplishments/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/posts/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/projects/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/talks/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/featured/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/publications/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/tags/</loc>
+  </url><url>
+    <loc>https://example.com/talk/example-talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/event/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tag/academic/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/categories/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/category/demo/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/getting-started/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tag/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/category/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tag/deep-learning/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/project/example/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/publication-type/1/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/publication/example/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/publication_types/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/publication/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/admin/</loc>
+  </url><url>
+    <loc>https://example.com/home-unused/</loc>
   </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/27/Lucky-Bee-Problems/</loc>
-    
-    <lastmod>2019-02-21T14:41:34.488Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/20/ISCA18-GPU-Locality-Mutlu/</loc>
-    
-    <lastmod>2019-02-21T14:41:10.844Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/02/03/DAC12-Dark-Silicon-MBT/</loc>
-    
-    <lastmod>2019-02-21T14:36:44.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/21/2019-01-21/</loc>
-    
-    <lastmod>2019-02-21T14:08:48.383Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/30/Perls/</loc>
-    
-    <lastmod>2019-02-01T12:51:14.740Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/31/GPU-Overview/</loc>
-    
-    <lastmod>2019-02-01T05:42:11.190Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/20/HPCA-19-PwrManager-Mutlu/</loc>
-    
-    <lastmod>2019-01-30T06:02:23.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2019/01/21/COMBA-HLS/</loc>
-    
-    <lastmod>2019-01-30T06:02:01.837Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2018/12/26/Financial%20Risk%20Management%20Lecture%2012/</loc>
-    
-    <lastmod>2019-01-30T06:00:24.117Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/2018/11/07/Hexo/</loc>
-    
-    <lastmod>2019-01-18T12:54:19.848Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/categories/index.html</loc>
-    
-    <lastmod>2018-12-26T14:34:07.766Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/schedule/index.html</loc>
-    
-    <lastmod>2018-12-26T14:34:00.070Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/sitemap/index.html</loc>
-    
-    <lastmod>2018-12-26T14:33:52.270Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sibylau.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-12-26T14:33:34.091Z</lastmod>
-    
-  </url>
-  
 </urlset>
