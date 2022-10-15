@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects | Jie Liu</title>
-    <link>https://example.com/projects/</link>
-      <atom:link href="https://example.com/projects/index.xml" rel="self" type="application/rss+xml" />
-    <description>Projects</description>
+    <title>Compilers | Jie Liu</title>
+    <link>https://example.com/tag/compilers/</link>
+      <atom:link href="https://example.com/tag/compilers/index.xml" rel="self" type="application/rss+xml" />
+    <description>Compilers</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language>
     <image>
       <url>https://example.com/media/icon_hu0be31e27d2fad34fea4bafd111bf4659_373794_512x512_fill_lanczos_center_3.png</url>
-      <title>Projects</title>
-      <link>https://example.com/projects/</link>
+      <title>Compilers</title>
+      <link>https://example.com/tag/compilers/</link>
     </image>
     
     <item>

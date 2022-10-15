@@ -14,21 +14,6 @@
   </url><url>
     <loc>https://example.com/home-unused/tags/</loc>
   </url><url>
-    <loc>https://example.com/tag/deep-learning/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.com/projects/example/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.com/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.com/projects/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.com/tags/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://example.com/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -38,13 +23,26 @@
     <loc>https://example.com/publications/example/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://example.com/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://example.com/publication_types/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/admin/</loc>
   </url><url>
+    <loc>https://example.com/projects/loop_schedule/</loc>
+  </url><url>
     <loc>https://example.com/categories/</loc>
   </url><url>
+    <loc>https://example.com/tag/compilers/</loc>
+  </url><url>
     <loc>https://example.com/home-unused/</loc>
+  </url><url>
+    <loc>https://example.com/projects/</loc>
+  </url><url>
+    <loc>https://example.com/tags/</loc>
+  </url><url>
+    <loc>https://example.com/projects/sparse_compiler/</loc>
   </url>
 </urlset>
