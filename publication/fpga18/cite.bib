@@ -1,0 +1,17 @@
+@inproceedings{10.1145/3289602.3293969,
+author = {Liu, Jie and Cong, Jason},
+title = {Dataflow Systolic Array Implementations of Matrix Decomposition Using High Level Synthesis},
+year = {2019},
+isbn = {9781450361378},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3289602.3293969},
+doi = {10.1145/3289602.3293969},
+abstract = {Matrix decomposition is a fundamental topic in numerical algebra, with its applications frequently seen in a wide range of engineering fields. Many specific systolic array structures of matrix decomposition algorithms have been proposed previously to maintain high performance as the problem size scales up. In this paper, we broadly explore different mappings of most frequently used Cholesky, LU and QR decomposition algorithms to systolic arrays. We follow the canonical mapping method to define the systolic array design space. By selecting different linear projection vectors on the dependency graph of each algorithm, multiple one-dimensional and two-dimensional systolic arrays are generated. To obtain better performance, we also introduce streaming dataflow on the top module which enables heterogeneous PEs to work in data-driven manners. All designs are implemented using the Xilinx Vivado High-Level Synthesis tools. We show in our experimental results the differences in performance and resource consumption of each mapping. We also demonstrate up to 50.13x and 4.58x better throughput of our implementations compared with the Xilinx HLS linear algebra library and the LAPACK library on CPUs.},
+booktitle = {Proceedings of the 2019 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays},
+pages = {187},
+numpages = {1},
+keywords = {systolic array, dataflow, throughput, high-level synthesis, matrix decomposition},
+location = {Seaside, CA, USA},
+series = {FPGA '19}
+}
