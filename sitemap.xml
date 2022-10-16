@@ -20,7 +20,13 @@
   </url><url>
     <loc>https://example.com/publication-type/2/</loc>
   </url><url>
-    <loc>https://example.com/projects/loop_schedule/</loc>
+    <loc>https://example.com/project/matraptor/</loc>
+  </url><url>
+    <loc>https://example.com/tag/accelerators/</loc>
+  </url><url>
+    <loc>https://example.com/project/loop_schedule/</loc>
+  </url><url>
+    <loc>https://example.com/project/hcl/</loc>
   </url><url>
     <loc>https://example.com/categories/</loc>
   </url><url>
@@ -32,20 +38,24 @@
   </url><url>
     <loc>https://example.com/publication/imu_journal_2/</loc>
   </url><url>
+    <loc>https://example.com/project/imu/</loc>
+  </url><url>
     <loc>https://example.com/</loc>
   </url><url>
     <loc>https://example.com/publication/matraptor/</loc>
   </url><url>
     <loc>https://example.com/publication/imu_journal/</loc>
   </url><url>
-    <loc>https://example.com/projects/</loc>
+    <loc>https://example.com/project/</loc>
   </url><url>
     <loc>https://example.com/publication_types/</loc>
   </url><url>
     <loc>https://example.com/publication/</loc>
   </url><url>
+    <loc>https://example.com/project/fpga18/</loc>
+  </url><url>
     <loc>https://example.com/tags/</loc>
   </url><url>
-    <loc>https://example.com/projects/sparse_compiler/</loc>
+    <loc>https://example.com/project/sparse_compiler/</loc>
   </url>
 </urlset>
