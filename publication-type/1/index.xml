@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>An example conference paper</title>
-      <link>https://example.com/publications/example/</link>
+      <title>MatRaptor: A Sparse-Sparse Matrix Multiplication Accelerator Based on Row-Wise Product</title>
+      <link>https://example.com/publication/matraptor/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://example.com/publications/example/</guid>
+      <guid>https://example.com/publication/matraptor/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
