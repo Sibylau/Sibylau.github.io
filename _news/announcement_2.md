@@ -6,7 +6,7 @@ inline: true
 related_posts: false
 ---
 
-Successfully finished my A exam. Many thanks to my advisor, Zhiru, and my special committee members Christopher Batten and Christina Delimitrou. Now I am a Ph.D. candidate!
+Successfully finished my A exam. Many thanks to my advisor, Prof. Zhiru Zhang, and my special committee members Prof. Christopher Batten and Prof. Christina Delimitrou. Now I am a Ph.D. candidate!
 
 <!-- 
 Announcements and news can be much longer than just quick inline posts. In fact, they can have all the features available for the standard blog posts. See below.
