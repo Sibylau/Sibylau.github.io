@@ -79,7 +79,7 @@ My sweetheart Mochi >>>333
 ##### 44. &#x2717; Travel around Eastern Europe
 ##### 45. &#x2717; Climb the Great Pyramid in Egypt
 ##### 46. &#10003; Watch a Broadway show in New York
-##### 47. &#x2717; Travel aroun The Middle East
+##### 47. &#x2717; Travel around The Middle East
 ##### 48. &#x2717; Learn lead climbing
 ##### 49. &#x2717; Learn mountaineering
 ##### 50. &#x2717; Visit all Mediterranean countries
