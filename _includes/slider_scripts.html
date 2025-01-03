@@ -9,9 +9,9 @@
   {%- assign iis_slider_array = iis_slider_array | concat: site_sliders | uniq -%}
 {%- endif -%}
 {% if iis_slider_array != empty %}
-  <script src="{{ '/assets/js/slider/ideal-image-slider.min.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/slider/iis-bullet-nav.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/slider/iis-captions.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/slider/ideal-image-slider.min.js' | relative_url | bust_file_cache }}"></script>
+  <script src="{{ '/assets/js/slider/iis-bullet-nav.js' | relative_url | bust_file_cache }}"></script>
+  <script src="{{ '/assets/js/slider/iis-captions.js' | relative_url | bust_file_cache }}"></script>
   <script>
   {% for selector in iis_slider_array -%}
     {%- assign slider = site.data.sliders | where:"selector",selector | first -%}
