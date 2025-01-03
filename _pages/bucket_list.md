@@ -24,6 +24,11 @@ Did a tandem paragliding at Poo Poo Point, Seattle.
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/prglid-1.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/prglid-3.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/prglid-2.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/prglid-4.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/prglid-5.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
 
 ##### 3. &#x2717; Take a hot-air balloon ride
 ##### 4. &#10003; Fall in love
