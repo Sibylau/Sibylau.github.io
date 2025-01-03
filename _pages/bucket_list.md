@@ -9,9 +9,9 @@ images:
   slider: true
 ---
 
-Inspired from [Chip Huyen's List 100](https://huyenchip.com/list-100/) and the movie "The Bucket List".
+Inspired from [Chip Huyen's List 100](https://huyenchip.com/list-100/) and the movie "The Bucket List". Please do reach out if you have any recommendations.
 
-**Why 101?**   
+#### **Why 101?**   
 My initial thought was 1001, but it feels excessive and burdensome.  
 And, while 1001 isn’t a prime number, 101 is!
 
