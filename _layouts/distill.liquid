@@ -24,6 +24,7 @@
         {{ page._styles }}
       </style>
     {% endif %}
+    {% include slider_styles.html %}
   </head>
 
   <d-front-matter>
@@ -123,5 +124,6 @@
     {% include scripts/progressBar.liquid %}
     {% include scripts/back_to_top.liquid %}
     {% include scripts/search.liquid %}
+    {% include slider_scripts.html %}
   </body>
 </html>
