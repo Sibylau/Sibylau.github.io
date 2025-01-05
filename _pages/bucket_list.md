@@ -73,7 +73,7 @@ Lucky to be in a PhD program at upstate New York and the Niagara Falls is so acc
 ##### 39. &#x2717; Water gliding
 ##### 40. &#x2717; Parachuting/Sky diving
 ##### 41. &#10003; Live a life with a dog
-My sweetheart Mochi >>>333
+My sweetheart Mochi >3
 ##### 42. &#x2717; Get a non-engineering degree
 ##### 43. &#x2717; Upload a vlog
 ##### 44. &#x2717; Travel around Eastern Europe
@@ -94,3 +94,6 @@ Round trips from Ithaca, NY to Richland, WA in 2023 summer. Beyond grateful to m
 ##### 57. &#10003; Travel with a stranger
 2024 late Aug, the wonderful photographers' trip in Cleveland, OH
 ##### 58. &#x2717; Presence in the perfect day of another person
+##### 59. &#x2717; Watch a meteor shower  
+...
+##### 101. ~ Be kind, harmonious and defensive
