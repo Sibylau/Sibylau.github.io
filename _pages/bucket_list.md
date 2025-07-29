@@ -95,6 +95,7 @@ Round trips from Ithaca, NY to Richland, WA in 2023 summer. Beyond grateful to m
 2024 late Aug, the wonderful photographers' trip in Cleveland, OH
 ##### 58. &#x2717; Presence in the perfect day of another person
 ##### 59. &#10003; Watch a meteor shower  
-Jul 26th, 2025 at Ridge Trail, Redwood City, CA
+Jul 26th, 2025 at Ridge Trail, Redwood City, CA!
+
 ...
 ##### 101. ~ Be kind, harmonious and defensive
